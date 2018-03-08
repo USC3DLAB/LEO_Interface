@@ -1,14 +1,15 @@
 import sys
+import os
 import csv
+import time
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import scipy.stats
-import os
-from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import QUrl
-from PyQt5.QtWidgets import QMainWindow, QAction, QMenu, QApplication, QWidget, QDesktopWidget, QFileDialog
-
+from PyQt5.QtWebEngineWidgets import QWebEngineView # pylint: disable=E0611
+from PyQt5.QtCore import QUrl # pylint: disable=E0611
+from PyQt5.QtWidgets import QMainWindow, QAction, QMenu, QApplication, QWidget, QDesktopWidget, QFileDialog # pylint: disable=E0611
+# pylint: disable-msg=E0611
 
 class LEO(QMainWindow):
 
@@ -22,6 +23,10 @@ class LEO(QMainWindow):
         self.test_data = []
         self.test_data_type = None
         self.save_folder = './'
+        self.log_file_name = ''
+        self.f = None
+        
+
 
         self.browser = QWebEngineView()
         file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "intro.html"))
@@ -42,9 +47,9 @@ class LEO(QMainWindow):
         # impAct = QAction('Import data file', self)
         ##impMenu.addAction(impAct)
 
-        newAct = QAction('Choose output file location', self)
-        newAct.setStatusTip('Choose a data folder which will contain all the output data')
-        newAct.triggered.connect(self.save_folder)
+        newAct = QAction('Generate log data', self)
+        newAct.setStatusTip('Generate a text file, which will contains all the output information from this software')
+        newAct.triggered.connect(self.savefolder)
         fileMenu.addAction(newAct)
         # fileMenu.addMenu(impMenu)
 
@@ -108,8 +113,7 @@ class LEO(QMainWindow):
         cdf = QAction('CDF', self)
         cdf.triggered.connect(self.cdf)
         ComparationMenu.addAction(cdf)
-        chart = QAction('Chart', self)
-        ComparationMenu.addAction(chart)
+
 
         helpMenu = menubar.addMenu('Help')
         helpdoc = QAction('Documents', self)
@@ -127,10 +131,14 @@ class LEO(QMainWindow):
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
-    def save_folder(self):
-        self.save_folder = QFileDialog.getExistingDirectory(self,
-                                                            "Open folder",
-                                                            "./")
+    def savefolder(self):
+        string = time.strftime('%b_%d_%Y_%H_%M_%S',time.localtime(time.time()))
+        self.log_file_name = 'log_data_' + string + '.txt'
+        self.f = open(self.log_file_name, 'w')
+        self.f.close()  
+        #self.save_folder = QFileDialog.getExistingDirectory(self,
+                                                            #"Open folder",
+                                                            #"./")
 
     ## open the data folder which contains all the data files that need to be compared, self.compared_data is a list contains the path of the file
     def open_compared_file(self):
@@ -138,21 +146,30 @@ class LEO(QMainWindow):
                                                                                    "Choose data",
                                                                                    "./",
                                                                                    "CSV Files (*.csv)")  ## open file, set file type filter
-
+        self.f = open(self.log_file_name,'a')
         print('Load the following data files for compare:')
+        self.f.write('Load the following data files for compare:')
+        self.f.write('\n')
         for i in self.compared_data:
             print(i)
+            self.f.write(i)
+            self.f.write('\n')
+        self.f.close()
 
+    ##open the two data files for test
     def open_file(self):
         self.test_data, self.test_data_type = QFileDialog.getOpenFileNames(self,
                                                                            "Choose data",
                                                                            "./",
                                                                            "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
-
-        print(self.test_data, type(self.test_data))
-        print('Load the following data files for test:')
+        self.f = open(self.log_file_name,'a')
+        print('Load the following data files for test:\n')
+        self.f.write('Load the following data files for test:\n')
         for i in self.test_data:
             print(i)
+            self.f.write(i)
+            self.f.write('\n')
+        self.f.close()
 
     def cdf(self):
         for i in self.compared_data:
@@ -172,19 +189,28 @@ class LEO(QMainWindow):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.f_oneway(train_data, val_data)
+        self.f = open(self.log_file_name,'a')
         print('The outcome of F Test is ' + str(output) + '\n')
+        self.f.write('The outcome of F Test is ' + str(output) + '\n')
+        self.f.close()
 
     def chisquaredtest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.chisquare(val_data, train_data)
         print('The outcome of Chi-Squared Test is ' + str(output) + '\n')
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The outcome of Chi-Squared Test is ' + str(output) + '\n')
+        self.f.close()
 
     def ttest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.ttest_ind(train_data, val_data)
         print('The outcome of T Test is ' + str(output) + '\n')
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The outcome of T Test is ' + str(output) + '\n')
+        self.f.close()
 
     def kwtest(self):
         files_nb = len(self.compared_data)
@@ -202,6 +228,10 @@ class LEO(QMainWindow):
                 df[model_types[j]][model_types[i]] = output.pvalue
         print('The outcome of Kruskal-Wallis Test is')
         print(df.to_string())
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The outcome of Kruskal-Wallis Test is:\n')
+        self.f.write(df.to_string())
+        self.f.close()
 
     def readcsv(self, filename):
         results = []
@@ -215,8 +245,6 @@ class LEO(QMainWindow):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-
-
 
     ex = LEO()
     sys.exit(app.exec_())

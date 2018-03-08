@@ -5,10 +5,16 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import scipy.stats
 import os
+from PyQt5 import QtCore
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QMainWindow, QAction, QMenu, QApplication, QWidget, QDesktopWidget, QFileDialog
 
+class EmittingStream(QtCore.QObject):
+    textWritten = QtCore.pyqtSignal(str)
+
+    def write(self, text):
+        self.textWritten.emit(str(text))
 
 class LEO(QMainWindow):
 
@@ -28,6 +34,34 @@ class LEO(QMainWindow):
         local_url = QUrl.fromLocalFile(file_path)
         self.browser.load(local_url)
         self.setCentralWidget(self.browser)
+        sys.stdout = EmittingStream(textWritten=self.normalOutputWritten)
+
+    def __del__(self):
+
+        # Restore sys.stdout
+
+        sys.stdout = sys.__stdout__
+
+    def normalOutputWritten(self, text):
+
+        """Append text to the QTextEdit."""
+
+        # Maybe QTextEdit.append() works as well, but this is how I do it:
+
+        cursor = self.textEdit.textCursor()
+
+        cursor.movePosition(QtGui.QTextCursor.End)
+
+        cursor.insertText(text)
+
+        self.textEdit.setTextCursor(cursor)
+
+        self.textEdit.ensureCursorVisible()
+
+
+
+
+
 
     def initUI(self):
 

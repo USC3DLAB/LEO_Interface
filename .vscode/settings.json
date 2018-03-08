@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/jjxu/anaconda/envs/py36/bin/pythonw"
+    "python.pythonPath": "/Users/jjxu/anaconda/envs/py36/bin/pythonw",
+    "python.linting.enabled": true
 }

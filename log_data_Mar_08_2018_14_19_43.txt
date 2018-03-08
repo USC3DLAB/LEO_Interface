@@ -1,0 +1,13 @@
+Load the following data files for test:
+Load the following data files for compare:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/EAE_SD_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/EAE_SAA_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/NDC_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/NDU_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/DF_Val1.csv
+The outcome of Kruskal-Wallis Test is              EAE_SD_Val1 EAE_SAA_Val1     NDC_Val1     NDU_Val1      DF_Val1
+EAE_SD_Val1           NaN  2.91255e-12  8.75078e-14  8.31858e-16   5.1721e-33
+EAE_SAA_Val1  2.91255e-12          NaN     0.863885     0.366734  5.16989e-33
+NDC_Val1      8.75078e-14     0.863885          NaN     0.210583  5.17084e-33
+NDU_Val1      8.31858e-16     0.366734     0.210583          NaN  5.17084e-33
+DF_Val1        5.1721e-33  5.16989e-33  5.17084e-33  5.17084e-33          NaN
