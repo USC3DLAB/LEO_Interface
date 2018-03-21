@@ -1,8 +1,0 @@
-Load the following data files for test:
-/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/EAE_SD_Val1.csv
-/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/EAE_SD_Train1.csv
-The outcome of Chi-Squared Test is Power_divergenceResult(statistic=834.58724642234631, pvalue=1.2529198992055285e-118)
-The outcome of T Test is Ttest_indResult(statistic=5.8981727656601644, pvalue=1.6543952341972877e-08)
-The outcome of F Test is F_onewayResult(statistic=34.78844197357477, pvalue=1.654395234197642e-08)
-Load the following data files for compare:
-Load the following data files for compare:

@@ -1,0 +1,4 @@
+Load the following SL data:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/NDC_Val1.csv
+Load the following error terms data:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/DF_Val1.csv

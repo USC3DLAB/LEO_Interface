@@ -25,7 +25,9 @@ class LEO(QMainWindow):
         self.save_folder = './'
         self.log_file_name = ''
         self.f = None
-        
+        self.tpye = None
+        self.SL_Data = None
+        self.ERROR_term  = None
 
 
         self.browser = QWebEngineView()
@@ -49,9 +51,40 @@ class LEO(QMainWindow):
 
         newAct = QAction('Generate log data', self)
         newAct.setStatusTip('Generate a text file, which will contains all the output information from this software')
-        newAct.triggered.connect(self.savefolder)
+        newAct.triggered.connect(self.generate_log_file)
         fileMenu.addAction(newAct)
         # fileMenu.addMenu(impMenu)
+
+        SLMenu = menubar.addMenu('SL data')
+        SL_data_load = QAction('Load SL data(*.csv)', self)
+        SL_data_load.triggered.connect(self.SL_data_load)
+        SLMenu.addAction(SL_data_load)
+
+        ERROR_term_load = QAction('Load error data(*.csv)', self)
+        ERROR_term_load.triggered.connect(self.ERROR_term_load)
+        SLMenu.addAction(ERROR_term_load)
+
+        CHI_for_error = QAction('perform a χ2-test to identify outliers', self)
+        CHI_for_error.triggered.connect(self.CHI_for_error)
+        SLMenu.addAction(CHI_for_error)
+
+
+        SPMenu = menubar.addMenu('SP Model')
+        PySP = QAction('Load SP model(*.py) and use PySP', self)
+        PySP.setStatusTip('Choose your SP model in *.py type, which will be used with PySP to generate SMPS files')
+        PySP.triggered.connect(self.PySP)
+        SPMenu.addAction(PySP)
+
+        SMPS = QAction('Choose the SMPS folder', self)
+        SMPS.setStatusTip('Choose your SP model in *.py type, which will be used with PySP to generate SMPS files')
+        SMPS.triggered.connect(self.SMPS)
+        SPMenu.addAction(SMPS)
+
+        SD = QAction('Load SP model(*.py) and use PySP', self)
+        SD.setStatusTip('Use SD solver to ')
+        SD.triggered.connect(self.SD)
+        SPMenu.addAction(SD)
+
 
         """"
         StatiticalmodelMenu = menubar.addMenu('Predictive Models')
@@ -125,13 +158,42 @@ class LEO(QMainWindow):
         self.setWindowTitle('Learning Enabled Optimization')
         self.show()
 
+    def SL_data_load(self):
+        self.SL_Data, self.type = QFileDialog.getOpenFileName(self,
+                                                            "Choose one SL data(*.csv)",
+                                                            "./",
+                                                            "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
+        self.f = open(self.log_file_name,'a')
+        print('Load the following SL data:\n' + self.SL_Data + '\n')
+        self.f.write('Load the following SL data:\n')
+        self.f.write(self.SL_Data + '\n')
+        self.f.close()
+
+    def ERROR_term_load(self):
+        self.ERROR_term, self.type = QFileDialog.getOpenFileNames(self,
+                                                            "Choose two error terms data files(*.csv)",
+                                                            "./",
+                                                            "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
+        self.f = open(self.log_file_name,'a')
+        print('Load the following error terms data:\n')
+        self.f.write('Load the following error terms data:\n')
+        for i in self.ERROR_terma:
+            print(i)
+            self.f.write(i)
+            self.f.write('\n')
+        self.f.close()
+        self.f.close()
+    
+    def CHI_for_error(self):
+        return
+
     def center(self):
         qr = self.frameGeometry()
         cp = QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
-    def savefolder(self):
+    def generate_log_file(self):
         string = time.strftime('%b_%d_%Y_%H_%M_%S',time.localtime(time.time()))
         self.log_file_name = 'log_data_' + string + '.txt'
         self.f = open(self.log_file_name, 'w')
