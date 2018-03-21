@@ -1,0 +1,9 @@
+STOCH         test
+INDEP         DISCRETE
+    X2       C2      100                      0.60
+    X2       C2      45                      0.40
+    X3       C3      -72                      0.60
+    X3       C3      -40                      0.40
+    X4       C3      -80                      0.60
+    X4       C3      -32                      0.40
+ENDATA

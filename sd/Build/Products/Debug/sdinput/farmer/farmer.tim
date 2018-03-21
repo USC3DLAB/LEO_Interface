@@ -1,0 +1,5 @@
+TIME  pltexpA2
+PERIODS 
+    x1	      cost                     TIME1
+    y1        minWheat                 TIME2
+ENDATA 

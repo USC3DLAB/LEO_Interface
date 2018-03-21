@@ -1,0 +1,1629 @@
+* ENCODING=ISO-8859-1
+NAME          IloCplex
+ROWS
+ N  obj       
+ L  budget    
+ L  dcost     
+ G  flip      
+ L  u_1_1_cap 
+ L  u_1_2_cap 
+ L  u_1_3_cap 
+ L  u_1_4_cap 
+ L  u_1_5_cap 
+ L  u_1_6_cap 
+ L  u_1_7_cap 
+ L  u_1_8_cap 
+ L  u_2_1_cap 
+ L  u_2_2_cap 
+ L  u_2_3_cap 
+ L  u_2_4_cap 
+ L  u_2_5_cap 
+ L  u_2_6_cap 
+ L  u_2_7_cap 
+ L  u_2_8_cap 
+ L  u_3_1_cap 
+ L  u_3_2_cap 
+ L  u_3_3_cap 
+ L  u_3_4_cap 
+ L  u_3_5_cap 
+ L  u_3_6_cap 
+ L  u_3_7_cap 
+ L  u_3_8_cap 
+ L  u_4_1_cap 
+ L  u_4_2_cap 
+ L  u_4_3_cap 
+ L  u_4_4_cap 
+ L  u_4_5_cap 
+ L  u_4_6_cap 
+ L  u_4_7_cap 
+ L  u_4_8_cap 
+ L  u_5_1_cap 
+ L  u_5_2_cap 
+ L  u_5_3_cap 
+ L  u_5_4_cap 
+ L  u_5_5_cap 
+ L  u_5_6_cap 
+ L  u_5_7_cap 
+ L  u_5_8_cap 
+ L  u_6_1_cap 
+ L  u_6_2_cap 
+ L  u_6_3_cap 
+ L  u_6_4_cap 
+ L  u_6_5_cap 
+ L  u_6_6_cap 
+ L  u_6_7_cap 
+ L  u_6_8_cap 
+ L  u_7_1_cap 
+ L  u_7_2_cap 
+ L  u_7_3_cap 
+ L  u_7_4_cap 
+ L  u_7_5_cap 
+ L  u_7_6_cap 
+ L  u_7_7_cap 
+ L  u_7_8_cap 
+ L  u_8_1_cap 
+ L  u_8_2_cap 
+ L  u_8_3_cap 
+ L  u_8_4_cap 
+ L  u_8_5_cap 
+ L  u_8_6_cap 
+ L  u_8_7_cap 
+ L  u_8_8_cap 
+ L  u_9_1_cap 
+ L  u_9_2_cap 
+ L  u_9_3_cap 
+ L  u_9_4_cap 
+ L  u_9_5_cap 
+ L  u_9_6_cap 
+ L  u_9_7_cap 
+ L  u_9_8_cap 
+ L  u_10_1_cap
+ L  u_10_2_cap
+ L  u_10_3_cap
+ L  u_10_4_cap
+ L  u_10_5_cap
+ L  u_10_6_cap
+ L  u_10_7_cap
+ L  u_10_8_cap
+ L  u_11_1_cap
+ L  u_11_2_cap
+ L  u_11_3_cap
+ L  u_11_4_cap
+ L  u_11_5_cap
+ L  u_11_6_cap
+ L  u_11_7_cap
+ L  u_11_8_cap
+ L  u_12_1_cap
+ L  u_12_2_cap
+ L  u_12_3_cap
+ L  u_12_4_cap
+ L  u_12_5_cap
+ L  u_12_6_cap
+ L  u_12_7_cap
+ L  u_12_8_cap
+ L  u_13_1_cap
+ L  u_13_2_cap
+ L  u_13_3_cap
+ L  u_13_4_cap
+ L  u_13_5_cap
+ L  u_13_6_cap
+ L  u_13_7_cap
+ L  u_13_8_cap
+ L  u_14_1_cap
+ L  u_14_2_cap
+ L  u_14_3_cap
+ L  u_14_4_cap
+ L  u_14_5_cap
+ L  u_14_6_cap
+ L  u_14_7_cap
+ L  u_14_8_cap
+ L  u_15_1_cap
+ L  u_15_2_cap
+ L  u_15_3_cap
+ L  u_15_4_cap
+ L  u_15_5_cap
+ L  u_15_6_cap
+ L  u_15_7_cap
+ L  u_15_8_cap
+ L  u_16_1_cap
+ L  u_16_2_cap
+ L  u_16_3_cap
+ L  u_16_4_cap
+ L  u_16_5_cap
+ L  u_16_6_cap
+ L  u_16_7_cap
+ L  u_16_8_cap
+ E  d1        
+ E  d2        
+ E  d3        
+ E  d4        
+ E  d5        
+ E  d6        
+ E  d7        
+ E  d8        
+ E  d9        
+ E  d10       
+ E  d11       
+ E  d12       
+ E  d13       
+ E  d14       
+ E  d15       
+ E  d16       
+ L  pc1       
+ L  pc2       
+ L  pc3       
+ L  pc4       
+ L  pc5       
+ L  pc6       
+ L  pc7       
+ L  pc8       
+ L  lc_1_1    
+ L  lc_1_2    
+ L  lc_1_3    
+ L  lc_1_4    
+ L  lc_1_5    
+ L  lc_1_6    
+ L  lc_1_7    
+ L  lc_1_8    
+ L  lc_2_1    
+ L  lc_2_2    
+ L  lc_2_3    
+ L  lc_2_4    
+ L  lc_2_5    
+ L  lc_2_6    
+ L  lc_2_7    
+ L  lc_2_8    
+ L  lc_3_1    
+ L  lc_3_2    
+ L  lc_3_3    
+ L  lc_3_4    
+ L  lc_3_5    
+ L  lc_3_6    
+ L  lc_3_7    
+ L  lc_3_8    
+ L  lc_4_1    
+ L  lc_4_2    
+ L  lc_4_3    
+ L  lc_4_4    
+ L  lc_4_5    
+ L  lc_4_6    
+ L  lc_4_7    
+ L  lc_4_8    
+ L  lc_5_1    
+ L  lc_5_2    
+ L  lc_5_3    
+ L  lc_5_4    
+ L  lc_5_5    
+ L  lc_5_6    
+ L  lc_5_7    
+ L  lc_5_8    
+ L  lc_6_1    
+ L  lc_6_2    
+ L  lc_6_3    
+ L  lc_6_4    
+ L  lc_6_5    
+ L  lc_6_6    
+ L  lc_6_7    
+ L  lc_6_8    
+ L  lc_7_1    
+ L  lc_7_2    
+ L  lc_7_3    
+ L  lc_7_4    
+ L  lc_7_5    
+ L  lc_7_6    
+ L  lc_7_7    
+ L  lc_7_8    
+ L  lc_8_1    
+ L  lc_8_2    
+ L  lc_8_3    
+ L  lc_8_4    
+ L  lc_8_5    
+ L  lc_8_6    
+ L  lc_8_7    
+ L  lc_8_8    
+ L  lc_9_1    
+ L  lc_9_2    
+ L  lc_9_3    
+ L  lc_9_4    
+ L  lc_9_5    
+ L  lc_9_6    
+ L  lc_9_7    
+ L  lc_9_8    
+ L  lc_10_1   
+ L  lc_10_2   
+ L  lc_10_3   
+ L  lc_10_4   
+ L  lc_10_5   
+ L  lc_10_6   
+ L  lc_10_7   
+ L  lc_10_8   
+ L  lc_11_1   
+ L  lc_11_2   
+ L  lc_11_3   
+ L  lc_11_4   
+ L  lc_11_5   
+ L  lc_11_6   
+ L  lc_11_7   
+ L  lc_11_8   
+ L  lc_12_1   
+ L  lc_12_2   
+ L  lc_12_3   
+ L  lc_12_4   
+ L  lc_12_5   
+ L  lc_12_6   
+ L  lc_12_7   
+ L  lc_12_8   
+ L  lc_13_1   
+ L  lc_13_2   
+ L  lc_13_3   
+ L  lc_13_4   
+ L  lc_13_5   
+ L  lc_13_6   
+ L  lc_13_7   
+ L  lc_13_8   
+ L  lc_14_1   
+ L  lc_14_2   
+ L  lc_14_3   
+ L  lc_14_4   
+ L  lc_14_5   
+ L  lc_14_6   
+ L  lc_14_7   
+ L  lc_14_8   
+ L  lc_15_1   
+ L  lc_15_2   
+ L  lc_15_3   
+ L  lc_15_4   
+ L  lc_15_5   
+ L  lc_15_6   
+ L  lc_15_7   
+ L  lc_15_8   
+ L  lc_16_1   
+ L  lc_16_2   
+ L  lc_16_3   
+ L  lc_16_4   
+ L  lc_16_5   
+ L  lc_16_6   
+ L  lc_16_7   
+ L  lc_16_8   
+COLUMNS
+    x_1_1       budget                            1
+    x_1_1       u_1_1_cap                         1
+    x_1_1       lc_1_1                           -1
+    x_1_2       budget                            1
+    x_1_2       u_1_2_cap                         1
+    x_1_2       lc_1_2                           -1
+    x_1_3       budget                            1
+    x_1_3       u_1_3_cap                         1
+    x_1_3       lc_1_3                           -1
+    x_1_4       budget                            1
+    x_1_4       u_1_4_cap                         1
+    x_1_4       lc_1_4                           -1
+    x_1_5       budget                            1
+    x_1_5       u_1_5_cap                         1
+    x_1_5       lc_1_5                           -1
+    x_1_6       budget                            1
+    x_1_6       u_1_6_cap                         1
+    x_1_6       lc_1_6                           -1
+    x_1_7       budget                            1
+    x_1_7       u_1_7_cap                         1
+    x_1_7       lc_1_7                           -1
+    x_1_8       budget                            1
+    x_1_8       u_1_8_cap                         1
+    x_1_8       lc_1_8                           -1
+    x_2_1       budget                            1
+    x_2_1       u_2_1_cap                         1
+    x_2_1       lc_2_1                           -1
+    x_2_2       budget                            1
+    x_2_2       u_2_2_cap                         1
+    x_2_2       lc_2_2                           -1
+    x_2_3       budget                            1
+    x_2_3       u_2_3_cap                         1
+    x_2_3       lc_2_3                           -1
+    x_2_4       budget                            1
+    x_2_4       u_2_4_cap                         1
+    x_2_4       lc_2_4                           -1
+    x_2_5       budget                            1
+    x_2_5       u_2_5_cap                         1
+    x_2_5       lc_2_5                           -1
+    x_2_6       budget                            1
+    x_2_6       u_2_6_cap                         1
+    x_2_6       lc_2_6                           -1
+    x_2_7       budget                            1
+    x_2_7       u_2_7_cap                         1
+    x_2_7       lc_2_7                           -1
+    x_2_8       budget                            1
+    x_2_8       u_2_8_cap                         1
+    x_2_8       lc_2_8                           -1
+    x_3_1       budget                            1
+    x_3_1       u_3_1_cap                         1
+    x_3_1       lc_3_1                           -1
+    x_3_2       budget                            1
+    x_3_2       u_3_2_cap                         1
+    x_3_2       lc_3_2                           -1
+    x_3_3       budget                            1
+    x_3_3       u_3_3_cap                         1
+    x_3_3       lc_3_3                           -1
+    x_3_4       budget                            1
+    x_3_4       u_3_4_cap                         1
+    x_3_4       lc_3_4                           -1
+    x_3_5       budget                            1
+    x_3_5       u_3_5_cap                         1
+    x_3_5       lc_3_5                           -1
+    x_3_6       budget                            1
+    x_3_6       u_3_6_cap                         1
+    x_3_6       lc_3_6                           -1
+    x_3_7       budget                            1
+    x_3_7       u_3_7_cap                         1
+    x_3_7       lc_3_7                           -1
+    x_3_8       budget                            1
+    x_3_8       u_3_8_cap                         1
+    x_3_8       lc_3_8                           -1
+    x_4_1       budget                            1
+    x_4_1       u_4_1_cap                         1
+    x_4_1       lc_4_1                           -1
+    x_4_2       budget                            1
+    x_4_2       u_4_2_cap                         1
+    x_4_2       lc_4_2                           -1
+    x_4_3       budget                            1
+    x_4_3       u_4_3_cap                         1
+    x_4_3       lc_4_3                           -1
+    x_4_4       budget                            1
+    x_4_4       u_4_4_cap                         1
+    x_4_4       lc_4_4                           -1
+    x_4_5       budget                            1
+    x_4_5       u_4_5_cap                         1
+    x_4_5       lc_4_5                           -1
+    x_4_6       budget                            1
+    x_4_6       u_4_6_cap                         1
+    x_4_6       lc_4_6                           -1
+    x_4_7       budget                            1
+    x_4_7       u_4_7_cap                         1
+    x_4_7       lc_4_7                           -1
+    x_4_8       budget                            1
+    x_4_8       u_4_8_cap                         1
+    x_4_8       lc_4_8                           -1
+    x_5_1       budget                            1
+    x_5_1       u_5_1_cap                         1
+    x_5_1       lc_5_1                           -1
+    x_5_2       budget                            1
+    x_5_2       u_5_2_cap                         1
+    x_5_2       lc_5_2                           -1
+    x_5_3       budget                            1
+    x_5_3       u_5_3_cap                         1
+    x_5_3       lc_5_3                           -1
+    x_5_4       budget                            1
+    x_5_4       u_5_4_cap                         1
+    x_5_4       lc_5_4                           -1
+    x_5_5       budget                            1
+    x_5_5       u_5_5_cap                         1
+    x_5_5       lc_5_5                           -1
+    x_5_6       budget                            1
+    x_5_6       u_5_6_cap                         1
+    x_5_6       lc_5_6                           -1
+    x_5_7       budget                            1
+    x_5_7       u_5_7_cap                         1
+    x_5_7       lc_5_7                           -1
+    x_5_8       budget                            1
+    x_5_8       u_5_8_cap                         1
+    x_5_8       lc_5_8                           -1
+    x_6_1       budget                            1
+    x_6_1       u_6_1_cap                         1
+    x_6_1       lc_6_1                           -1
+    x_6_2       budget                            1
+    x_6_2       u_6_2_cap                         1
+    x_6_2       lc_6_2                           -1
+    x_6_3       budget                            1
+    x_6_3       u_6_3_cap                         1
+    x_6_3       lc_6_3                           -1
+    x_6_4       budget                            1
+    x_6_4       u_6_4_cap                         1
+    x_6_4       lc_6_4                           -1
+    x_6_5       budget                            1
+    x_6_5       u_6_5_cap                         1
+    x_6_5       lc_6_5                           -1
+    x_6_6       budget                            1
+    x_6_6       u_6_6_cap                         1
+    x_6_6       lc_6_6                           -1
+    x_6_7       budget                            1
+    x_6_7       u_6_7_cap                         1
+    x_6_7       lc_6_7                           -1
+    x_6_8       budget                            1
+    x_6_8       u_6_8_cap                         1
+    x_6_8       lc_6_8                           -1
+    x_7_1       budget                            1
+    x_7_1       u_7_1_cap                         1
+    x_7_1       lc_7_1                           -1
+    x_7_2       budget                            1
+    x_7_2       u_7_2_cap                         1
+    x_7_2       lc_7_2                           -1
+    x_7_3       budget                            1
+    x_7_3       u_7_3_cap                         1
+    x_7_3       lc_7_3                           -1
+    x_7_4       budget                            1
+    x_7_4       u_7_4_cap                         1
+    x_7_4       lc_7_4                           -1
+    x_7_5       budget                            1
+    x_7_5       u_7_5_cap                         1
+    x_7_5       lc_7_5                           -1
+    x_7_6       budget                            1
+    x_7_6       u_7_6_cap                         1
+    x_7_6       lc_7_6                           -1
+    x_7_7       budget                            1
+    x_7_7       u_7_7_cap                         1
+    x_7_7       lc_7_7                           -1
+    x_7_8       budget                            1
+    x_7_8       u_7_8_cap                         1
+    x_7_8       lc_7_8                           -1
+    x_8_1       budget                            1
+    x_8_1       u_8_1_cap                         1
+    x_8_1       lc_8_1                           -1
+    x_8_2       budget                            1
+    x_8_2       u_8_2_cap                         1
+    x_8_2       lc_8_2                           -1
+    x_8_3       budget                            1
+    x_8_3       u_8_3_cap                         1
+    x_8_3       lc_8_3                           -1
+    x_8_4       budget                            1
+    x_8_4       u_8_4_cap                         1
+    x_8_4       lc_8_4                           -1
+    x_8_5       budget                            1
+    x_8_5       u_8_5_cap                         1
+    x_8_5       lc_8_5                           -1
+    x_8_6       budget                            1
+    x_8_6       u_8_6_cap                         1
+    x_8_6       lc_8_6                           -1
+    x_8_7       budget                            1
+    x_8_7       u_8_7_cap                         1
+    x_8_7       lc_8_7                           -1
+    x_8_8       budget                            1
+    x_8_8       u_8_8_cap                         1
+    x_8_8       lc_8_8                           -1
+    x_9_1       budget                            1
+    x_9_1       u_9_1_cap                         1
+    x_9_1       lc_9_1                           -1
+    x_9_2       budget                            1
+    x_9_2       u_9_2_cap                         1
+    x_9_2       lc_9_2                           -1
+    x_9_3       budget                            1
+    x_9_3       u_9_3_cap                         1
+    x_9_3       lc_9_3                           -1
+    x_9_4       budget                            1
+    x_9_4       u_9_4_cap                         1
+    x_9_4       lc_9_4                           -1
+    x_9_5       budget                            1
+    x_9_5       u_9_5_cap                         1
+    x_9_5       lc_9_5                           -1
+    x_9_6       budget                            1
+    x_9_6       u_9_6_cap                         1
+    x_9_6       lc_9_6                           -1
+    x_9_7       budget                            1
+    x_9_7       u_9_7_cap                         1
+    x_9_7       lc_9_7                           -1
+    x_9_8       budget                            1
+    x_9_8       u_9_8_cap                         1
+    x_9_8       lc_9_8                           -1
+    x_10_1      budget                            1
+    x_10_1      u_10_1_cap                        1
+    x_10_1      lc_10_1                          -1
+    x_10_2      budget                            1
+    x_10_2      u_10_2_cap                        1
+    x_10_2      lc_10_2                          -1
+    x_10_3      budget                            1
+    x_10_3      u_10_3_cap                        1
+    x_10_3      lc_10_3                          -1
+    x_10_4      budget                            1
+    x_10_4      u_10_4_cap                        1
+    x_10_4      lc_10_4                          -1
+    x_10_5      budget                            1
+    x_10_5      u_10_5_cap                        1
+    x_10_5      lc_10_5                          -1
+    x_10_6      budget                            1
+    x_10_6      u_10_6_cap                        1
+    x_10_6      lc_10_6                          -1
+    x_10_7      budget                            1
+    x_10_7      u_10_7_cap                        1
+    x_10_7      lc_10_7                          -1
+    x_10_8      budget                            1
+    x_10_8      u_10_8_cap                        1
+    x_10_8      lc_10_8                          -1
+    x_11_1      budget                            1
+    x_11_1      u_11_1_cap                        1
+    x_11_1      lc_11_1                          -1
+    x_11_2      budget                            1
+    x_11_2      u_11_2_cap                        1
+    x_11_2      lc_11_2                          -1
+    x_11_3      budget                            1
+    x_11_3      u_11_3_cap                        1
+    x_11_3      lc_11_3                          -1
+    x_11_4      budget                            1
+    x_11_4      u_11_4_cap                        1
+    x_11_4      lc_11_4                          -1
+    x_11_5      budget                            1
+    x_11_5      u_11_5_cap                        1
+    x_11_5      lc_11_5                          -1
+    x_11_6      budget                            1
+    x_11_6      u_11_6_cap                        1
+    x_11_6      lc_11_6                          -1
+    x_11_7      budget                            1
+    x_11_7      u_11_7_cap                        1
+    x_11_7      lc_11_7                          -1
+    x_11_8      budget                            1
+    x_11_8      u_11_8_cap                        1
+    x_11_8      lc_11_8                          -1
+    x_12_1      budget                            1
+    x_12_1      u_12_1_cap                        1
+    x_12_1      lc_12_1                          -1
+    x_12_2      budget                            1
+    x_12_2      u_12_2_cap                        1
+    x_12_2      lc_12_2                          -1
+    x_12_3      budget                            1
+    x_12_3      u_12_3_cap                        1
+    x_12_3      lc_12_3                          -1
+    x_12_4      budget                            1
+    x_12_4      u_12_4_cap                        1
+    x_12_4      lc_12_4                          -1
+    x_12_5      budget                            1
+    x_12_5      u_12_5_cap                        1
+    x_12_5      lc_12_5                          -1
+    x_12_6      budget                            1
+    x_12_6      u_12_6_cap                        1
+    x_12_6      lc_12_6                          -1
+    x_12_7      budget                            1
+    x_12_7      u_12_7_cap                        1
+    x_12_7      lc_12_7                          -1
+    x_12_8      budget                            1
+    x_12_8      u_12_8_cap                        1
+    x_12_8      lc_12_8                          -1
+    x_13_1      budget                            1
+    x_13_1      u_13_1_cap                        1
+    x_13_1      lc_13_1                          -1
+    x_13_2      budget                            1
+    x_13_2      u_13_2_cap                        1
+    x_13_2      lc_13_2                          -1
+    x_13_3      budget                            1
+    x_13_3      u_13_3_cap                        1
+    x_13_3      lc_13_3                          -1
+    x_13_4      budget                            1
+    x_13_4      u_13_4_cap                        1
+    x_13_4      lc_13_4                          -1
+    x_13_5      budget                            1
+    x_13_5      u_13_5_cap                        1
+    x_13_5      lc_13_5                          -1
+    x_13_6      budget                            1
+    x_13_6      u_13_6_cap                        1
+    x_13_6      lc_13_6                          -1
+    x_13_7      budget                            1
+    x_13_7      u_13_7_cap                        1
+    x_13_7      lc_13_7                          -1
+    x_13_8      budget                            1
+    x_13_8      u_13_8_cap                        1
+    x_13_8      lc_13_8                          -1
+    x_14_1      budget                            1
+    x_14_1      u_14_1_cap                        1
+    x_14_1      lc_14_1                          -1
+    x_14_2      budget                            1
+    x_14_2      u_14_2_cap                        1
+    x_14_2      lc_14_2                          -1
+    x_14_3      budget                            1
+    x_14_3      u_14_3_cap                        1
+    x_14_3      lc_14_3                          -1
+    x_14_4      budget                            1
+    x_14_4      u_14_4_cap                        1
+    x_14_4      lc_14_4                          -1
+    x_14_5      budget                            1
+    x_14_5      u_14_5_cap                        1
+    x_14_5      lc_14_5                          -1
+    x_14_6      budget                            1
+    x_14_6      u_14_6_cap                        1
+    x_14_6      lc_14_6                          -1
+    x_14_7      budget                            1
+    x_14_7      u_14_7_cap                        1
+    x_14_7      lc_14_7                          -1
+    x_14_8      budget                            1
+    x_14_8      u_14_8_cap                        1
+    x_14_8      lc_14_8                          -1
+    x_15_1      budget                            1
+    x_15_1      u_15_1_cap                        1
+    x_15_1      lc_15_1                          -1
+    x_15_2      budget                            1
+    x_15_2      u_15_2_cap                        1
+    x_15_2      lc_15_2                          -1
+    x_15_3      budget                            1
+    x_15_3      u_15_3_cap                        1
+    x_15_3      lc_15_3                          -1
+    x_15_4      budget                            1
+    x_15_4      u_15_4_cap                        1
+    x_15_4      lc_15_4                          -1
+    x_15_5      budget                            1
+    x_15_5      u_15_5_cap                        1
+    x_15_5      lc_15_5                          -1
+    x_15_6      budget                            1
+    x_15_6      u_15_6_cap                        1
+    x_15_6      lc_15_6                          -1
+    x_15_7      budget                            1
+    x_15_7      u_15_7_cap                        1
+    x_15_7      lc_15_7                          -1
+    x_15_8      budget                            1
+    x_15_8      u_15_8_cap                        1
+    x_15_8      lc_15_8                          -1
+    x_16_1      budget                            1
+    x_16_1      u_16_1_cap                        1
+    x_16_1      lc_16_1                          -1
+    x_16_2      budget                            1
+    x_16_2      u_16_2_cap                        1
+    x_16_2      lc_16_2                          -1
+    x_16_3      budget                            1
+    x_16_3      u_16_3_cap                        1
+    x_16_3      lc_16_3                          -1
+    x_16_4      budget                            1
+    x_16_4      u_16_4_cap                        1
+    x_16_4      lc_16_4                          -1
+    x_16_5      budget                            1
+    x_16_5      u_16_5_cap                        1
+    x_16_5      lc_16_5                          -1
+    x_16_6      budget                            1
+    x_16_6      u_16_6_cap                        1
+    x_16_6      lc_16_6                          -1
+    x_16_7      budget                            1
+    x_16_7      u_16_7_cap                        1
+    x_16_7      lc_16_7                          -1
+    x_16_8      budget                            1
+    x_16_8      u_16_8_cap                        1
+    x_16_8      lc_16_8                          -1
+    u_1_1       dcost                             1
+    u_1_1       flip                              1
+    u_1_1       u_1_1_cap                      -380
+    u_1_2       dcost                             1
+    u_1_2       flip                              1
+    u_1_2       u_1_2_cap                      -230
+    u_1_3       dcost                             1
+    u_1_3       flip                              1
+    u_1_3       u_1_3_cap                      -250
+    u_1_4       dcost                             1
+    u_1_4       flip                              1
+    u_1_4       u_1_4_cap                      -230
+    u_1_5       dcost                             1
+    u_1_5       flip                              1
+    u_1_5       u_1_5_cap                      -240
+    u_1_6       dcost                             1
+    u_1_6       flip                              1
+    u_1_6       u_1_6_cap                      -230
+    u_1_7       dcost                             1
+    u_1_7       flip                              1
+    u_1_7       u_1_7_cap                      -230
+    u_1_8       dcost                             1
+    u_1_8       flip                              1
+    u_1_8       u_1_8_cap                      -240
+    u_2_1       dcost                             1
+    u_2_1       flip                              1
+    u_2_1       u_2_1_cap                      -380
+    u_2_2       dcost                             1
+    u_2_2       flip                              1
+    u_2_2       u_2_2_cap                      -230
+    u_2_3       dcost                             1
+    u_2_3       flip                              1
+    u_2_3       u_2_3_cap                      -250
+    u_2_4       dcost                             1
+    u_2_4       flip                              1
+    u_2_4       u_2_4_cap                      -230
+    u_2_5       dcost                             1
+    u_2_5       flip                              1
+    u_2_5       u_2_5_cap                      -240
+    u_2_6       dcost                             1
+    u_2_6       flip                              1
+    u_2_6       u_2_6_cap                      -230
+    u_2_7       dcost                             1
+    u_2_7       flip                              1
+    u_2_7       u_2_7_cap                      -230
+    u_2_8       dcost                             1
+    u_2_8       flip                              1
+    u_2_8       u_2_8_cap                      -240
+    u_3_1       dcost                             1
+    u_3_1       flip                              1
+    u_3_1       u_3_1_cap                      -380
+    u_3_2       dcost                             1
+    u_3_2       flip                              1
+    u_3_2       u_3_2_cap                      -230
+    u_3_3       dcost                             1
+    u_3_3       flip                              1
+    u_3_3       u_3_3_cap                      -250
+    u_3_4       dcost                             1
+    u_3_4       flip                              1
+    u_3_4       u_3_4_cap                      -230
+    u_3_5       dcost                             1
+    u_3_5       flip                              1
+    u_3_5       u_3_5_cap                      -240
+    u_3_6       dcost                             1
+    u_3_6       flip                              1
+    u_3_6       u_3_6_cap                      -230
+    u_3_7       dcost                             1
+    u_3_7       flip                              1
+    u_3_7       u_3_7_cap                      -230
+    u_3_8       dcost                             1
+    u_3_8       flip                              1
+    u_3_8       u_3_8_cap                      -240
+    u_4_1       dcost                             1
+    u_4_1       flip                              1
+    u_4_1       u_4_1_cap                      -380
+    u_4_2       dcost                             1
+    u_4_2       flip                              1
+    u_4_2       u_4_2_cap                      -230
+    u_4_3       dcost                             1
+    u_4_3       flip                              1
+    u_4_3       u_4_3_cap                      -250
+    u_4_4       dcost                             1
+    u_4_4       flip                              1
+    u_4_4       u_4_4_cap                      -230
+    u_4_5       dcost                             1
+    u_4_5       flip                              1
+    u_4_5       u_4_5_cap                      -240
+    u_4_6       dcost                             1
+    u_4_6       flip                              1
+    u_4_6       u_4_6_cap                      -230
+    u_4_7       dcost                             1
+    u_4_7       flip                              1
+    u_4_7       u_4_7_cap                      -230
+    u_4_8       dcost                             1
+    u_4_8       flip                              1
+    u_4_8       u_4_8_cap                      -240
+    u_5_1       dcost                             1
+    u_5_1       flip                              1
+    u_5_1       u_5_1_cap                      -380
+    u_5_2       dcost                             1
+    u_5_2       flip                              1
+    u_5_2       u_5_2_cap                      -230
+    u_5_3       dcost                             1
+    u_5_3       flip                              1
+    u_5_3       u_5_3_cap                      -250
+    u_5_4       dcost                             1
+    u_5_4       flip                              1
+    u_5_4       u_5_4_cap                      -230
+    u_5_5       dcost                             1
+    u_5_5       flip                              1
+    u_5_5       u_5_5_cap                      -240
+    u_5_6       dcost                             1
+    u_5_6       flip                              1
+    u_5_6       u_5_6_cap                      -230
+    u_5_7       dcost                             1
+    u_5_7       flip                              1
+    u_5_7       u_5_7_cap                      -230
+    u_5_8       dcost                             1
+    u_5_8       flip                              1
+    u_5_8       u_5_8_cap                      -240
+    u_6_1       dcost                             1
+    u_6_1       flip                              1
+    u_6_1       u_6_1_cap                      -380
+    u_6_2       dcost                             1
+    u_6_2       flip                              1
+    u_6_2       u_6_2_cap                      -230
+    u_6_3       dcost                             1
+    u_6_3       flip                              1
+    u_6_3       u_6_3_cap                      -250
+    u_6_4       dcost                             1
+    u_6_4       flip                              1
+    u_6_4       u_6_4_cap                      -230
+    u_6_5       dcost                             1
+    u_6_5       flip                              1
+    u_6_5       u_6_5_cap                      -240
+    u_6_6       dcost                             1
+    u_6_6       flip                              1
+    u_6_6       u_6_6_cap                      -230
+    u_6_7       dcost                             1
+    u_6_7       flip                              1
+    u_6_7       u_6_7_cap                      -230
+    u_6_8       dcost                             1
+    u_6_8       flip                              1
+    u_6_8       u_6_8_cap                      -240
+    u_7_1       dcost                             1
+    u_7_1       flip                              1
+    u_7_1       u_7_1_cap                      -380
+    u_7_2       dcost                             1
+    u_7_2       flip                              1
+    u_7_2       u_7_2_cap                      -230
+    u_7_3       dcost                             1
+    u_7_3       flip                              1
+    u_7_3       u_7_3_cap                      -250
+    u_7_4       dcost                             1
+    u_7_4       flip                              1
+    u_7_4       u_7_4_cap                      -230
+    u_7_5       dcost                             1
+    u_7_5       flip                              1
+    u_7_5       u_7_5_cap                      -240
+    u_7_6       dcost                             1
+    u_7_6       flip                              1
+    u_7_6       u_7_6_cap                      -230
+    u_7_7       dcost                             1
+    u_7_7       flip                              1
+    u_7_7       u_7_7_cap                      -230
+    u_7_8       dcost                             1
+    u_7_8       flip                              1
+    u_7_8       u_7_8_cap                      -240
+    u_8_1       dcost                             1
+    u_8_1       flip                              1
+    u_8_1       u_8_1_cap                      -380
+    u_8_2       dcost                             1
+    u_8_2       flip                              1
+    u_8_2       u_8_2_cap                      -230
+    u_8_3       dcost                             1
+    u_8_3       flip                              1
+    u_8_3       u_8_3_cap                      -250
+    u_8_4       dcost                             1
+    u_8_4       flip                              1
+    u_8_4       u_8_4_cap                      -230
+    u_8_5       dcost                             1
+    u_8_5       flip                              1
+    u_8_5       u_8_5_cap                      -240
+    u_8_6       dcost                             1
+    u_8_6       flip                              1
+    u_8_6       u_8_6_cap                      -230
+    u_8_7       dcost                             1
+    u_8_7       flip                              1
+    u_8_7       u_8_7_cap                      -230
+    u_8_8       dcost                             1
+    u_8_8       flip                              1
+    u_8_8       u_8_8_cap                      -240
+    u_9_1       dcost                             1
+    u_9_1       flip                              1
+    u_9_1       u_9_1_cap                      -380
+    u_9_2       dcost                             1
+    u_9_2       flip                              1
+    u_9_2       u_9_2_cap                      -230
+    u_9_3       dcost                             1
+    u_9_3       flip                              1
+    u_9_3       u_9_3_cap                      -250
+    u_9_4       dcost                             1
+    u_9_4       flip                              1
+    u_9_4       u_9_4_cap                      -230
+    u_9_5       dcost                             1
+    u_9_5       flip                              1
+    u_9_5       u_9_5_cap                      -240
+    u_9_6       dcost                             1
+    u_9_6       flip                              1
+    u_9_6       u_9_6_cap                      -230
+    u_9_7       dcost                             1
+    u_9_7       flip                              1
+    u_9_7       u_9_7_cap                      -230
+    u_9_8       dcost                             1
+    u_9_8       flip                              1
+    u_9_8       u_9_8_cap                      -240
+    u_10_1      dcost                             1
+    u_10_1      flip                              1
+    u_10_1      u_10_1_cap                     -380
+    u_10_2      dcost                             1
+    u_10_2      flip                              1
+    u_10_2      u_10_2_cap                     -230
+    u_10_3      dcost                             1
+    u_10_3      flip                              1
+    u_10_3      u_10_3_cap                     -250
+    u_10_4      dcost                             1
+    u_10_4      flip                              1
+    u_10_4      u_10_4_cap                     -230
+    u_10_5      dcost                             1
+    u_10_5      flip                              1
+    u_10_5      u_10_5_cap                     -240
+    u_10_6      dcost                             1
+    u_10_6      flip                              1
+    u_10_6      u_10_6_cap                     -230
+    u_10_7      dcost                             1
+    u_10_7      flip                              1
+    u_10_7      u_10_7_cap                     -230
+    u_10_8      dcost                             1
+    u_10_8      flip                              1
+    u_10_8      u_10_8_cap                     -240
+    u_11_1      dcost                             1
+    u_11_1      flip                              1
+    u_11_1      u_11_1_cap                     -380
+    u_11_2      dcost                             1
+    u_11_2      flip                              1
+    u_11_2      u_11_2_cap                     -230
+    u_11_3      dcost                             1
+    u_11_3      flip                              1
+    u_11_3      u_11_3_cap                     -250
+    u_11_4      dcost                             1
+    u_11_4      flip                              1
+    u_11_4      u_11_4_cap                     -230
+    u_11_5      dcost                             1
+    u_11_5      flip                              1
+    u_11_5      u_11_5_cap                     -240
+    u_11_6      dcost                             1
+    u_11_6      flip                              1
+    u_11_6      u_11_6_cap                     -230
+    u_11_7      dcost                             1
+    u_11_7      flip                              1
+    u_11_7      u_11_7_cap                     -230
+    u_11_8      dcost                             1
+    u_11_8      flip                              1
+    u_11_8      u_11_8_cap                     -240
+    u_12_1      dcost                             1
+    u_12_1      flip                              1
+    u_12_1      u_12_1_cap                     -380
+    u_12_2      dcost                             1
+    u_12_2      flip                              1
+    u_12_2      u_12_2_cap                     -230
+    u_12_3      dcost                             1
+    u_12_3      flip                              1
+    u_12_3      u_12_3_cap                     -250
+    u_12_4      dcost                             1
+    u_12_4      flip                              1
+    u_12_4      u_12_4_cap                     -230
+    u_12_5      dcost                             1
+    u_12_5      flip                              1
+    u_12_5      u_12_5_cap                     -240
+    u_12_6      dcost                             1
+    u_12_6      flip                              1
+    u_12_6      u_12_6_cap                     -230
+    u_12_7      dcost                             1
+    u_12_7      flip                              1
+    u_12_7      u_12_7_cap                     -230
+    u_12_8      dcost                             1
+    u_12_8      flip                              1
+    u_12_8      u_12_8_cap                     -240
+    u_13_1      dcost                             1
+    u_13_1      flip                              1
+    u_13_1      u_13_1_cap                     -380
+    u_13_2      dcost                             1
+    u_13_2      flip                              1
+    u_13_2      u_13_2_cap                     -230
+    u_13_3      dcost                             1
+    u_13_3      flip                              1
+    u_13_3      u_13_3_cap                     -250
+    u_13_4      dcost                             1
+    u_13_4      flip                              1
+    u_13_4      u_13_4_cap                     -230
+    u_13_5      dcost                             1
+    u_13_5      flip                              1
+    u_13_5      u_13_5_cap                     -240
+    u_13_6      dcost                             1
+    u_13_6      flip                              1
+    u_13_6      u_13_6_cap                     -230
+    u_13_7      dcost                             1
+    u_13_7      flip                              1
+    u_13_7      u_13_7_cap                     -230
+    u_13_8      dcost                             1
+    u_13_8      flip                              1
+    u_13_8      u_13_8_cap                     -240
+    u_14_1      dcost                             1
+    u_14_1      flip                              1
+    u_14_1      u_14_1_cap                     -380
+    u_14_2      dcost                             1
+    u_14_2      flip                              1
+    u_14_2      u_14_2_cap                     -230
+    u_14_3      dcost                             1
+    u_14_3      flip                              1
+    u_14_3      u_14_3_cap                     -250
+    u_14_4      dcost                             1
+    u_14_4      flip                              1
+    u_14_4      u_14_4_cap                     -230
+    u_14_5      dcost                             1
+    u_14_5      flip                              1
+    u_14_5      u_14_5_cap                     -240
+    u_14_6      dcost                             1
+    u_14_6      flip                              1
+    u_14_6      u_14_6_cap                     -230
+    u_14_7      dcost                             1
+    u_14_7      flip                              1
+    u_14_7      u_14_7_cap                     -230
+    u_14_8      dcost                             1
+    u_14_8      flip                              1
+    u_14_8      u_14_8_cap                     -240
+    u_15_1      dcost                             1
+    u_15_1      flip                              1
+    u_15_1      u_15_1_cap                     -380
+    u_15_2      dcost                             1
+    u_15_2      flip                              1
+    u_15_2      u_15_2_cap                     -230
+    u_15_3      dcost                             1
+    u_15_3      flip                              1
+    u_15_3      u_15_3_cap                     -250
+    u_15_4      dcost                             1
+    u_15_4      flip                              1
+    u_15_4      u_15_4_cap                     -230
+    u_15_5      dcost                             1
+    u_15_5      flip                              1
+    u_15_5      u_15_5_cap                     -240
+    u_15_6      dcost                             1
+    u_15_6      flip                              1
+    u_15_6      u_15_6_cap                     -230
+    u_15_7      dcost                             1
+    u_15_7      flip                              1
+    u_15_7      u_15_7_cap                     -230
+    u_15_8      dcost                             1
+    u_15_8      flip                              1
+    u_15_8      u_15_8_cap                     -240
+    u_16_1      dcost                             1
+    u_16_1      flip                              1
+    u_16_1      u_16_1_cap                     -380
+    u_16_2      dcost                             1
+    u_16_2      flip                              1
+    u_16_2      u_16_2_cap                     -230
+    u_16_3      dcost                             1
+    u_16_3      flip                              1
+    u_16_3      u_16_3_cap                     -250
+    u_16_4      dcost                             1
+    u_16_4      flip                              1
+    u_16_4      u_16_4_cap                     -230
+    u_16_5      dcost                             1
+    u_16_5      flip                              1
+    u_16_5      u_16_5_cap                     -240
+    u_16_6      dcost                             1
+    u_16_6      flip                              1
+    u_16_6      u_16_6_cap                     -230
+    u_16_7      dcost                             1
+    u_16_7      flip                              1
+    u_16_7      u_16_7_cap                     -230
+    u_16_8      dcost                             1
+    u_16_8      flip                              1
+    u_16_8      u_16_8_cap                     -240
+    y_1_1       d1                                1
+    y_1_1       pc1                               1
+    y_1_1       lc_1_1                            1
+    y_1_2       d1                                1
+    y_1_2       pc2                               1
+    y_1_2       lc_1_2                            1
+    y_1_3       d1                                1
+    y_1_3       pc3                               1
+    y_1_3       lc_1_3                            1
+    y_1_4       d1                                1
+    y_1_4       pc4                               1
+    y_1_4       lc_1_4                            1
+    y_1_5       d1                                1
+    y_1_5       pc5                               1
+    y_1_5       lc_1_5                            1
+    y_1_6       d1                                1
+    y_1_6       pc6                               1
+    y_1_6       lc_1_6                            1
+    y_1_7       d1                                1
+    y_1_7       pc7                               1
+    y_1_7       lc_1_7                            1
+    y_1_8       d1                                1
+    y_1_8       pc8                               1
+    y_1_8       lc_1_8                            1
+    y_2_1       d2                                1
+    y_2_1       pc1                               1
+    y_2_1       lc_2_1                            1
+    y_2_2       d2                                1
+    y_2_2       pc2                               1
+    y_2_2       lc_2_2                            1
+    y_2_3       d2                                1
+    y_2_3       pc3                               1
+    y_2_3       lc_2_3                            1
+    y_2_4       d2                                1
+    y_2_4       pc4                               1
+    y_2_4       lc_2_4                            1
+    y_2_5       d2                                1
+    y_2_5       pc5                               1
+    y_2_5       lc_2_5                            1
+    y_2_6       d2                                1
+    y_2_6       pc6                               1
+    y_2_6       lc_2_6                            1
+    y_2_7       d2                                1
+    y_2_7       pc7                               1
+    y_2_7       lc_2_7                            1
+    y_2_8       d2                                1
+    y_2_8       pc8                               1
+    y_2_8       lc_2_8                            1
+    y_3_1       d3                                1
+    y_3_1       pc1                               1
+    y_3_1       lc_3_1                            1
+    y_3_2       d3                                1
+    y_3_2       pc2                               1
+    y_3_2       lc_3_2                            1
+    y_3_3       d3                                1
+    y_3_3       pc3                               1
+    y_3_3       lc_3_3                            1
+    y_3_4       d3                                1
+    y_3_4       pc4                               1
+    y_3_4       lc_3_4                            1
+    y_3_5       d3                                1
+    y_3_5       pc5                               1
+    y_3_5       lc_3_5                            1
+    y_3_6       d3                                1
+    y_3_6       pc6                               1
+    y_3_6       lc_3_6                            1
+    y_3_7       d3                                1
+    y_3_7       pc7                               1
+    y_3_7       lc_3_7                            1
+    y_3_8       d3                                1
+    y_3_8       pc8                               1
+    y_3_8       lc_3_8                            1
+    y_4_1       d4                                1
+    y_4_1       pc1                               1
+    y_4_1       lc_4_1                            1
+    y_4_2       d4                                1
+    y_4_2       pc2                               1
+    y_4_2       lc_4_2                            1
+    y_4_3       d4                                1
+    y_4_3       pc3                               1
+    y_4_3       lc_4_3                            1
+    y_4_4       d4                                1
+    y_4_4       pc4                               1
+    y_4_4       lc_4_4                            1
+    y_4_5       d4                                1
+    y_4_5       pc5                               1
+    y_4_5       lc_4_5                            1
+    y_4_6       d4                                1
+    y_4_6       pc6                               1
+    y_4_6       lc_4_6                            1
+    y_4_7       d4                                1
+    y_4_7       pc7                               1
+    y_4_7       lc_4_7                            1
+    y_4_8       d4                                1
+    y_4_8       pc8                               1
+    y_4_8       lc_4_8                            1
+    y_5_1       d5                                1
+    y_5_1       pc1                               1
+    y_5_1       lc_5_1                            1
+    y_5_2       d5                                1
+    y_5_2       pc2                               1
+    y_5_2       lc_5_2                            1
+    y_5_3       d5                                1
+    y_5_3       pc3                               1
+    y_5_3       lc_5_3                            1
+    y_5_4       d5                                1
+    y_5_4       pc4                               1
+    y_5_4       lc_5_4                            1
+    y_5_5       d5                                1
+    y_5_5       pc5                               1
+    y_5_5       lc_5_5                            1
+    y_5_6       d5                                1
+    y_5_6       pc6                               1
+    y_5_6       lc_5_6                            1
+    y_5_7       d5                                1
+    y_5_7       pc7                               1
+    y_5_7       lc_5_7                            1
+    y_5_8       d5                                1
+    y_5_8       pc8                               1
+    y_5_8       lc_5_8                            1
+    y_6_1       d6                                1
+    y_6_1       pc1                               1
+    y_6_1       lc_6_1                            1
+    y_6_2       d6                                1
+    y_6_2       pc2                               1
+    y_6_2       lc_6_2                            1
+    y_6_3       d6                                1
+    y_6_3       pc3                               1
+    y_6_3       lc_6_3                            1
+    y_6_4       d6                                1
+    y_6_4       pc4                               1
+    y_6_4       lc_6_4                            1
+    y_6_5       d6                                1
+    y_6_5       pc5                               1
+    y_6_5       lc_6_5                            1
+    y_6_6       d6                                1
+    y_6_6       pc6                               1
+    y_6_6       lc_6_6                            1
+    y_6_7       d6                                1
+    y_6_7       pc7                               1
+    y_6_7       lc_6_7                            1
+    y_6_8       d6                                1
+    y_6_8       pc8                               1
+    y_6_8       lc_6_8                            1
+    y_7_1       d7                                1
+    y_7_1       pc1                               1
+    y_7_1       lc_7_1                            1
+    y_7_2       d7                                1
+    y_7_2       pc2                               1
+    y_7_2       lc_7_2                            1
+    y_7_3       d7                                1
+    y_7_3       pc3                               1
+    y_7_3       lc_7_3                            1
+    y_7_4       d7                                1
+    y_7_4       pc4                               1
+    y_7_4       lc_7_4                            1
+    y_7_5       d7                                1
+    y_7_5       pc5                               1
+    y_7_5       lc_7_5                            1
+    y_7_6       d7                                1
+    y_7_6       pc6                               1
+    y_7_6       lc_7_6                            1
+    y_7_7       d7                                1
+    y_7_7       pc7                               1
+    y_7_7       lc_7_7                            1
+    y_7_8       d7                                1
+    y_7_8       pc8                               1
+    y_7_8       lc_7_8                            1
+    y_8_1       d8                                1
+    y_8_1       pc1                               1
+    y_8_1       lc_8_1                            1
+    y_8_2       d8                                1
+    y_8_2       pc2                               1
+    y_8_2       lc_8_2                            1
+    y_8_3       d8                                1
+    y_8_3       pc3                               1
+    y_8_3       lc_8_3                            1
+    y_8_4       d8                                1
+    y_8_4       pc4                               1
+    y_8_4       lc_8_4                            1
+    y_8_5       d8                                1
+    y_8_5       pc5                               1
+    y_8_5       lc_8_5                            1
+    y_8_6       d8                                1
+    y_8_6       pc6                               1
+    y_8_6       lc_8_6                            1
+    y_8_7       d8                                1
+    y_8_7       pc7                               1
+    y_8_7       lc_8_7                            1
+    y_8_8       d8                                1
+    y_8_8       pc8                               1
+    y_8_8       lc_8_8                            1
+    y_9_1       d9                                1
+    y_9_1       pc1                               1
+    y_9_1       lc_9_1                            1
+    y_9_2       d9                                1
+    y_9_2       pc2                               1
+    y_9_2       lc_9_2                            1
+    y_9_3       d9                                1
+    y_9_3       pc3                               1
+    y_9_3       lc_9_3                            1
+    y_9_4       d9                                1
+    y_9_4       pc4                               1
+    y_9_4       lc_9_4                            1
+    y_9_5       d9                                1
+    y_9_5       pc5                               1
+    y_9_5       lc_9_5                            1
+    y_9_6       d9                                1
+    y_9_6       pc6                               1
+    y_9_6       lc_9_6                            1
+    y_9_7       d9                                1
+    y_9_7       pc7                               1
+    y_9_7       lc_9_7                            1
+    y_9_8       d9                                1
+    y_9_8       pc8                               1
+    y_9_8       lc_9_8                            1
+    y_10_1      d10                               1
+    y_10_1      pc1                               1
+    y_10_1      lc_10_1                           1
+    y_10_2      d10                               1
+    y_10_2      pc2                               1
+    y_10_2      lc_10_2                           1
+    y_10_3      d10                               1
+    y_10_3      pc3                               1
+    y_10_3      lc_10_3                           1
+    y_10_4      d10                               1
+    y_10_4      pc4                               1
+    y_10_4      lc_10_4                           1
+    y_10_5      d10                               1
+    y_10_5      pc5                               1
+    y_10_5      lc_10_5                           1
+    y_10_6      d10                               1
+    y_10_6      pc6                               1
+    y_10_6      lc_10_6                           1
+    y_10_7      d10                               1
+    y_10_7      pc7                               1
+    y_10_7      lc_10_7                           1
+    y_10_8      d10                               1
+    y_10_8      pc8                               1
+    y_10_8      lc_10_8                           1
+    y_11_1      d11                               1
+    y_11_1      pc1                               1
+    y_11_1      lc_11_1                           1
+    y_11_2      d11                               1
+    y_11_2      pc2                               1
+    y_11_2      lc_11_2                           1
+    y_11_3      d11                               1
+    y_11_3      pc3                               1
+    y_11_3      lc_11_3                           1
+    y_11_4      d11                               1
+    y_11_4      pc4                               1
+    y_11_4      lc_11_4                           1
+    y_11_5      d11                               1
+    y_11_5      pc5                               1
+    y_11_5      lc_11_5                           1
+    y_11_6      d11                               1
+    y_11_6      pc6                               1
+    y_11_6      lc_11_6                           1
+    y_11_7      d11                               1
+    y_11_7      pc7                               1
+    y_11_7      lc_11_7                           1
+    y_11_8      d11                               1
+    y_11_8      pc8                               1
+    y_11_8      lc_11_8                           1
+    y_12_1      d12                               1
+    y_12_1      pc1                               1
+    y_12_1      lc_12_1                           1
+    y_12_2      d12                               1
+    y_12_2      pc2                               1
+    y_12_2      lc_12_2                           1
+    y_12_3      d12                               1
+    y_12_3      pc3                               1
+    y_12_3      lc_12_3                           1
+    y_12_4      d12                               1
+    y_12_4      pc4                               1
+    y_12_4      lc_12_4                           1
+    y_12_5      d12                               1
+    y_12_5      pc5                               1
+    y_12_5      lc_12_5                           1
+    y_12_6      d12                               1
+    y_12_6      pc6                               1
+    y_12_6      lc_12_6                           1
+    y_12_7      d12                               1
+    y_12_7      pc7                               1
+    y_12_7      lc_12_7                           1
+    y_12_8      d12                               1
+    y_12_8      pc8                               1
+    y_12_8      lc_12_8                           1
+    y_13_1      d13                               1
+    y_13_1      pc1                               1
+    y_13_1      lc_13_1                           1
+    y_13_2      d13                               1
+    y_13_2      pc2                               1
+    y_13_2      lc_13_2                           1
+    y_13_3      d13                               1
+    y_13_3      pc3                               1
+    y_13_3      lc_13_3                           1
+    y_13_4      d13                               1
+    y_13_4      pc4                               1
+    y_13_4      lc_13_4                           1
+    y_13_5      d13                               1
+    y_13_5      pc5                               1
+    y_13_5      lc_13_5                           1
+    y_13_6      d13                               1
+    y_13_6      pc6                               1
+    y_13_6      lc_13_6                           1
+    y_13_7      d13                               1
+    y_13_7      pc7                               1
+    y_13_7      lc_13_7                           1
+    y_13_8      d13                               1
+    y_13_8      pc8                               1
+    y_13_8      lc_13_8                           1
+    y_14_1      d14                               1
+    y_14_1      pc1                               1
+    y_14_1      lc_14_1                           1
+    y_14_2      d14                               1
+    y_14_2      pc2                               1
+    y_14_2      lc_14_2                           1
+    y_14_3      d14                               1
+    y_14_3      pc3                               1
+    y_14_3      lc_14_3                           1
+    y_14_4      d14                               1
+    y_14_4      pc4                               1
+    y_14_4      lc_14_4                           1
+    y_14_5      d14                               1
+    y_14_5      pc5                               1
+    y_14_5      lc_14_5                           1
+    y_14_6      d14                               1
+    y_14_6      pc6                               1
+    y_14_6      lc_14_6                           1
+    y_14_7      d14                               1
+    y_14_7      pc7                               1
+    y_14_7      lc_14_7                           1
+    y_14_8      d14                               1
+    y_14_8      pc8                               1
+    y_14_8      lc_14_8                           1
+    y_15_1      d15                               1
+    y_15_1      pc1                               1
+    y_15_1      lc_15_1                           1
+    y_15_2      d15                               1
+    y_15_2      pc2                               1
+    y_15_2      lc_15_2                           1
+    y_15_3      d15                               1
+    y_15_3      pc3                               1
+    y_15_3      lc_15_3                           1
+    y_15_4      d15                               1
+    y_15_4      pc4                               1
+    y_15_4      lc_15_4                           1
+    y_15_5      d15                               1
+    y_15_5      pc5                               1
+    y_15_5      lc_15_5                           1
+    y_15_6      d15                               1
+    y_15_6      pc6                               1
+    y_15_6      lc_15_6                           1
+    y_15_7      d15                               1
+    y_15_7      pc7                               1
+    y_15_7      lc_15_7                           1
+    y_15_8      d15                               1
+    y_15_8      pc8                               1
+    y_15_8      lc_15_8                           1
+    y_16_1      d16                               1
+    y_16_1      pc1                               1
+    y_16_1      lc_16_1                           1
+    y_16_2      d16                               1
+    y_16_2      pc2                               1
+    y_16_2      lc_16_2                           1
+    y_16_3      d16                               1
+    y_16_3      pc3                               1
+    y_16_3      lc_16_3                           1
+    y_16_4      d16                               1
+    y_16_4      pc4                               1
+    y_16_4      lc_16_4                           1
+    y_16_5      d16                               1
+    y_16_5      pc5                               1
+    y_16_5      lc_16_5                           1
+    y_16_6      d16                               1
+    y_16_6      pc6                               1
+    y_16_6      lc_16_6                           1
+    y_16_7      d16                               1
+    y_16_7      pc7                               1
+    y_16_7      lc_16_7                           1
+    y_16_8      d16                               1
+    y_16_8      pc8                               1
+    y_16_8      lc_16_8                           1
+    s1          obj                               1
+    s1          d1                                1
+    s2          obj                               1
+    s2          d2                                1
+    s3          obj                               1
+    s3          d3                                1
+    s4          obj                               1
+    s4          d4                                1
+    s5          obj                               1
+    s5          d5                                1
+    s6          obj                               1
+    s6          d6                                1
+    s7          obj                               1
+    s7          d7                                1
+    s8          obj                               1
+    s8          d8                                1
+    s9          obj                               1
+    s9          d9                                1
+    s10         obj                               1
+    s10         d10                               1
+    s11         obj                               1
+    s11         d11                               1
+    s12         obj                               1
+    s12         d12                               1
+    s13         obj                               1
+    s13         d13                               1
+    s14         obj                               1
+    s14         d14                               1
+    s15         obj                               1
+    s15         d15                               1
+    s16         obj                               1
+    s16         d16                               1
+RHS
+    rhs         budget                         2000
+    rhs         dcost                            20
+    rhs         d1                              100
+    rhs         d2                              100
+    rhs         d3                              100
+    rhs         d4                              100
+    rhs         d5                              100
+    rhs         d6                              100
+    rhs         d7                              100
+    rhs         d8                              100
+    rhs         d9                              100
+    rhs         d10                             100
+    rhs         d11                             100
+    rhs         d12                             100
+    rhs         d13                             100
+    rhs         d14                             100
+    rhs         d15                             100
+    rhs         d16                             100
+    rhs         pc1                             380
+    rhs         pc2                             230
+    rhs         pc3                             250
+    rhs         pc4                             230
+    rhs         pc5                             240
+    rhs         pc6                             230
+    rhs         pc7                             230
+    rhs         pc8                             240
+BOUNDS
+ UI bnd         u_1_1                             1
+ UI bnd         u_1_2                             1
+ UI bnd         u_1_3                             1
+ UI bnd         u_1_4                             1
+ UI bnd         u_1_5                             1
+ UI bnd         u_1_6                             1
+ UI bnd         u_1_7                             1
+ UI bnd         u_1_8                             1
+ UI bnd         u_2_1                             1
+ UI bnd         u_2_2                             1
+ UI bnd         u_2_3                             1
+ UI bnd         u_2_4                             1
+ UI bnd         u_2_5                             1
+ UI bnd         u_2_6                             1
+ UI bnd         u_2_7                             1
+ UI bnd         u_2_8                             1
+ UI bnd         u_3_1                             1
+ UI bnd         u_3_2                             1
+ UI bnd         u_3_3                             1
+ UI bnd         u_3_4                             1
+ UI bnd         u_3_5                             1
+ UI bnd         u_3_6                             1
+ UI bnd         u_3_7                             1
+ UI bnd         u_3_8                             1
+ UI bnd         u_4_1                             1
+ UI bnd         u_4_2                             1
+ UI bnd         u_4_3                             1
+ UI bnd         u_4_4                             1
+ UI bnd         u_4_5                             1
+ UI bnd         u_4_6                             1
+ UI bnd         u_4_7                             1
+ UI bnd         u_4_8                             1
+ UI bnd         u_5_1                             1
+ UI bnd         u_5_2                             1
+ UI bnd         u_5_3                             1
+ UI bnd         u_5_4                             1
+ UI bnd         u_5_5                             1
+ UI bnd         u_5_6                             1
+ UI bnd         u_5_7                             1
+ UI bnd         u_5_8                             1
+ UI bnd         u_6_1                             1
+ UI bnd         u_6_2                             1
+ UI bnd         u_6_3                             1
+ UI bnd         u_6_4                             1
+ UI bnd         u_6_5                             1
+ UI bnd         u_6_6                             1
+ UI bnd         u_6_7                             1
+ UI bnd         u_6_8                             1
+ UI bnd         u_7_1                             1
+ UI bnd         u_7_2                             1
+ UI bnd         u_7_3                             1
+ UI bnd         u_7_4                             1
+ UI bnd         u_7_5                             1
+ UI bnd         u_7_6                             1
+ UI bnd         u_7_7                             1
+ UI bnd         u_7_8                             1
+ UI bnd         u_8_1                             1
+ UI bnd         u_8_2                             1
+ UI bnd         u_8_3                             1
+ UI bnd         u_8_4                             1
+ UI bnd         u_8_5                             1
+ UI bnd         u_8_6                             1
+ UI bnd         u_8_7                             1
+ UI bnd         u_8_8                             1
+ UI bnd         u_9_1                             1
+ UI bnd         u_9_2                             1
+ UI bnd         u_9_3                             1
+ UI bnd         u_9_4                             1
+ UI bnd         u_9_5                             1
+ UI bnd         u_9_6                             1
+ UI bnd         u_9_7                             1
+ UI bnd         u_9_8                             1
+ UI bnd         u_10_1                            1
+ UI bnd         u_10_2                            1
+ UI bnd         u_10_3                            1
+ UI bnd         u_10_4                            1
+ UI bnd         u_10_5                            1
+ UI bnd         u_10_6                            1
+ UI bnd         u_10_7                            1
+ UI bnd         u_10_8                            1
+ UI bnd         u_11_1                            1
+ UI bnd         u_11_2                            1
+ UI bnd         u_11_3                            1
+ UI bnd         u_11_4                            1
+ UI bnd         u_11_5                            1
+ UI bnd         u_11_6                            1
+ UI bnd         u_11_7                            1
+ UI bnd         u_11_8                            1
+ UI bnd         u_12_1                            1
+ UI bnd         u_12_2                            1
+ UI bnd         u_12_3                            1
+ UI bnd         u_12_4                            1
+ UI bnd         u_12_5                            1
+ UI bnd         u_12_6                            1
+ UI bnd         u_12_7                            1
+ UI bnd         u_12_8                            1
+ UI bnd         u_13_1                            1
+ UI bnd         u_13_2                            1
+ UI bnd         u_13_3                            1
+ UI bnd         u_13_4                            1
+ UI bnd         u_13_5                            1
+ UI bnd         u_13_6                            1
+ UI bnd         u_13_7                            1
+ UI bnd         u_13_8                            1
+ UI bnd         u_14_1                            1
+ UI bnd         u_14_2                            1
+ UI bnd         u_14_3                            1
+ UI bnd         u_14_4                            1
+ UI bnd         u_14_5                            1
+ UI bnd         u_14_6                            1
+ UI bnd         u_14_7                            1
+ UI bnd         u_14_8                            1
+ UI bnd         u_15_1                            1
+ UI bnd         u_15_2                            1
+ UI bnd         u_15_3                            1
+ UI bnd         u_15_4                            1
+ UI bnd         u_15_5                            1
+ UI bnd         u_15_6                            1
+ UI bnd         u_15_7                            1
+ UI bnd         u_15_8                            1
+ UI bnd         u_16_1                            1
+ UI bnd         u_16_2                            1
+ UI bnd         u_16_3                            1
+ UI bnd         u_16_4                            1
+ UI bnd         u_16_5                            1
+ UI bnd         u_16_6                            1
+ UI bnd         u_16_7                            1
+ UI bnd         u_16_8                            1
+ENDATA

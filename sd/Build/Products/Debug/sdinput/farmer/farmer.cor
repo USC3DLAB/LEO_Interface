@@ -1,0 +1,33 @@
+* Problem:    farmer
+* Class:      LP
+* Rows:       6
+* Columns:    9
+* Non-zeros:  22
+* Format:     Fixed MPS
+*
+NAME          farmer
+ROWS
+ N  cost
+ L  tLand
+ G  minWheat
+ G  minCorn
+ L  sSold
+ L  sFavor
+COLUMNS
+    x1        cost               150   tLand                1
+    x1        minWheat           2.5
+    x2        cost               230   tLand                1
+    x2        minCorn              3
+    x3        cost               260   tLand                1
+    x3        sSold              -20
+    y1        cost               238   minWheat             1
+    y2        cost               210   minCorn              1
+    w1        cost              -170   minWheat            -1
+    w2        cost              -150   minCorn             -1
+    w3        cost               -36   sSold                1
+    w3        sFavor               1
+    w4        cost               -10   sSold                1
+RHS
+    RHS1      tLand              500   minWheat           200
+    RHS1      minCorn            240   sFavor            6000
+ENDATA

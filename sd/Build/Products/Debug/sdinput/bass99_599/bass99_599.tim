@@ -1,0 +1,5 @@
+TIME bass99_599
+PERIODS IMPLICIT
+    x1 x10 TIME1
+    x3 c_e_x11_ TIME2
+ENDATA

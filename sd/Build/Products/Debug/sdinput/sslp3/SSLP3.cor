@@ -1,0 +1,54 @@
+* ENCODING=ISO-8859-1
+NAME          SSLP+2_2_2_5_5
+ROWS
+ N  obj     
+ G  c_1_1   
+ G  c_2_1   
+ G  c_2_2   
+ G  c_2_3   
+ G  c_2_4   
+ G  c_2_5   
+ G  c_2_6   
+COLUMNS
+    x_1       obj                            61
+    x_1       c_1_1                          -1
+    x_1       c_2_1                         188
+    x_2       obj                            80
+    x_2       c_1_1                          -1
+    x_2       c_2_2                         188
+    y_1       obj                           -14
+    y_1       c_2_1                         -14
+    y_1       c_2_3                           1
+    y_1       c_2_5                          -1
+    y_2       obj                           -16
+    y_2       c_2_2                         -16
+    y_2       c_2_3                           1
+    y_2       c_2_5                          -1
+    y_3       obj                           -14
+    y_3       c_2_1                         -14
+    y_3       c_2_4                           1
+    y_3       c_2_6                          -1
+    y_4       obj                           -18
+    y_4       c_2_2                         -18
+    y_4       c_2_4                           1
+    y_4       c_2_6                          -1
+    y_5       obj                          5000
+    y_5       c_2_1                           1
+    y_6       obj                          5000
+    y_6       c_2_2                           1
+RHS
+    rhs       c_1_1                         -10
+    rhs       c_2_3                           3
+    rhs       c_2_4                           3
+    rhs       c_2_5                          -3
+    rhs       c_2_6                          -3
+BOUNDS
+ UP bnd       x_1                             5
+ UP bnd       x_2                             5
+ UP bnd       y_1                             5
+ UP bnd       y_2                             5
+ UP bnd       y_3                             5
+ UP bnd       y_4                             5
+ UP bnd       y_5                          1000
+ UP bnd       y_6                          1000
+ENDATA

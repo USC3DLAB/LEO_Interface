@@ -1,0 +1,5 @@
+TIME adtrain_1
+PERIODS IMPLICIT
+    x1 x5 TIME1
+    x3 c_l_x8_ TIME2
+ENDATA

@@ -1,0 +1,5 @@
+TIME          test
+PERIODS
+    X1    ObJ                     TIME1
+    Y1    C2                   TIME2
+ENDATA

@@ -1,0 +1,25 @@
+
+Log started (V12.6.0.0) Thu Apr 24 16:35:12 2014
+
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  obj
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+
+Problem 'sslp2.mps' read.
+Read time = 0.11 sec. (0.19 ticks)
+Tried aggregator 1 time.
+LP Presolve eliminated 51 rows and 12 columns.
+Reduced LP has 60 rows, 508 columns, and 996 nonzeros.
+Presolve time = 0.01 sec. (0.31 ticks)
+Initializing dual steep norms . . .
+
+Iteration log . . .
+Iteration:     1   Dual objective     =        -23118.000000
+Iteration:    62   Dual objective     =         -2256.329356
+
+Dual simplex - Optimal:  Objective = -2.0560319149e+03
+Solution time =    0.02 sec.  Iterations = 85 (0)
+Deterministic time = 0.82 ticks  (52.27 ticks/sec)
+

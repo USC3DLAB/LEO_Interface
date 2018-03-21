@@ -1,0 +1,124 @@
+STOCH         PGP2
+INDEP         DISCRETE
+    RHS       DNODE1      0.5                      0.00005
+    RHS       DNODE1      1.0                      0.00125
+    RHS       DNODE1      2.5                      0.02150
+    RHS       DNODE1      3.5                      0.28570
+    RHS       DNODE1      5.0                      0.38300
+    RHS       DNODE1      6.5                      0.28570
+    RHS       DNODE1      7.5                      0.02150
+    RHS       DNODE1      9.0                      0.00125
+    RHS       DNODE1      9.5                      0.00005
+    RHS       DNODE2      0.0                      0.00130
+    RHS       DNODE2      1.5                      0.02150
+    RHS       DNODE2      2.5                      0.28570
+    RHS       DNODE2      4.0                      0.38300
+    RHS       DNODE2      5.5                      0.28570
+    RHS       DNODE2      6.5                      0.02150
+    RHS       DNODE2      8.0                      0.00125
+    RHS       DNODE2      8.5                      0.00005
+    RHS       DNODE3      0.0                      0.00130
+    RHS       DNODE3      0.5                      0.02150
+    RHS       DNODE3      1.5                      0.28570
+    RHS       DNODE3      3.0                      0.38300
+    RHS       DNODE3      4.5                      0.28570
+    RHS       DNODE3      5.5                      0.02150
+    RHS       DNODE3      7.0                      0.00125
+    RHS       DNODE3      7.5                      0.00005
+*col1
+    EQ1ND1    FOBJ        38                       0.20000
+    EQ1ND1    FOBJ        39                       0.20000
+    EQ1ND1    FOBJ        40                       0.20000
+    EQ1ND1    FOBJ        41                       0.20000
+    EQ1ND1    FOBJ        42                       0.20000
+*col2
+    EQ1ND2    FOBJ        22                       0.20000
+    EQ1ND2    FOBJ        23                       0.20000
+    EQ1ND2    FOBJ        24                       0.20000
+    EQ1ND2    FOBJ        25                       0.20000
+    EQ1ND2    FOBJ        26                       0.20000
+*col3
+    EQ1ND3    FOBJ        3.8                       0.20000
+    EQ1ND3    FOBJ        3.9                       0.20000
+    EQ1ND3    FOBJ        4                         0.20000
+    EQ1ND3    FOBJ        4.1                       0.20000
+    EQ1ND3    FOBJ        4.2                       0.20000
+*col4
+    EQ2ND1    FOBJ        43                       0.20000
+    EQ2ND1    FOBJ        44                       0.20000
+    EQ2ND1    FOBJ        45                       0.20000
+    EQ2ND1    FOBJ        46                       0.20000
+    EQ2ND1    FOBJ        47                       0.20000
+*col5
+    EQ2ND2    FOBJ        25                       0.20000
+    EQ2ND2    FOBJ        26                       0.20000
+    EQ2ND2    FOBJ        27                       0.20000
+    EQ2ND2    FOBJ        28                       0.20000
+    EQ2ND2    FOBJ        29                       0.20000
+*col6
+    EQ2ND3    FOBJ        4.3                       0.20000
+    EQ2ND3    FOBJ        4.4                       0.20000
+    EQ2ND3    FOBJ        4.5                       0.20000
+    EQ2ND3    FOBJ        4.6                       0.20000
+    EQ2ND3    FOBJ        4.7                       0.20000
+*col7
+    EQ3ND1    FOBJ        30                       0.20000
+    EQ3ND1    FOBJ        31                       0.20000
+    EQ3ND1    FOBJ        32                       0.20000
+    EQ3ND1    FOBJ        33                       0.20000
+    EQ3ND1    FOBJ        34                       0.20000
+*col8
+    EQ3ND2    FOBJ        17.2                       0.20000
+    EQ3ND2    FOBJ        18.2                       0.20000
+    EQ3ND2    FOBJ        19.2                       0.20000
+    EQ3ND2    FOBJ        20.2                       0.20000
+    EQ3ND2    FOBJ        21.2                       0.20000
+*col9
+    EQ3ND3    FOBJ        3.0                       0.20000
+    EQ3ND3    FOBJ        3.1                       0.20000
+    EQ3ND3    FOBJ        3.2                       0.20000
+    EQ3ND3    FOBJ        3.3                       0.20000
+    EQ3ND3    FOBJ        3.4                       0.20000
+*col10
+    EQ4ND1    FOBJ        53                       0.20000
+    EQ4ND1    FOBJ        54                       0.20000
+    EQ4ND1    FOBJ        55                       0.20000
+    EQ4ND1    FOBJ        56                       0.20000
+    EQ4ND1    FOBJ        57                       0.20000
+*col11
+    EQ4ND2    FOBJ        31                       0.20000
+    EQ4ND2    FOBJ        32                       0.20000
+    EQ4ND2    FOBJ        33                       0.20000
+    EQ4ND2    FOBJ        34                       0.20000
+    EQ4ND2    FOBJ        35                       0.20000
+*col12
+    EQ4ND3    FOBJ        5.3                       0.20000
+    EQ4ND3    FOBJ        5.4                       0.20000
+    EQ4ND3    FOBJ        5.5                       0.20000
+    EQ4ND3    FOBJ        5.6                       0.20000
+    EQ4ND3    FOBJ        5.7                       0.20000
+*col13
+    PEN1    FOBJ        980                       0.20000
+    PEN1    FOBJ        990                       0.20000
+    PEN1    FOBJ        1000                       0.20000
+    PEN1    FOBJ        1010                       0.20000
+    PEN1    FOBJ        1020                       0.20000
+*col14
+    PEN2    FOBJ        980                       0.20000
+    PEN2    FOBJ        990                       0.20000
+    PEN2    FOBJ        1000                       0.20000
+    PEN2    FOBJ        1010                       0.20000
+    PEN2    FOBJ        1020                       0.20000
+*col15
+    PEN3    FOBJ        980                       0.20000
+    PEN3    FOBJ        990                       0.20000
+    PEN3    FOBJ        1000                       0.20000
+    PEN3    FOBJ        1010                       0.20000
+    PEN3    FOBJ        1020                       0.20000
+*col16
+    PEN4    FOBJ        980                       0.20000
+    PEN4    FOBJ        990                       0.20000
+    PEN4    FOBJ        1000                       0.20000
+    PEN4    FOBJ        1010                       0.20000
+    PEN4    FOBJ        1020                       0.20000
+ENDATA

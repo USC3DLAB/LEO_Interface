@@ -1,0 +1,5 @@
+TIME     SSLP+10_50_50_3_3
+PERIODS     LP
+    x_1     obj    		TIME1
+    y_1     c_2_1    		TIME2
+ENDATA

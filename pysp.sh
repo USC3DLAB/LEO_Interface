@@ -1,1 +1,1 @@
-python smps.py --basename bass99_599 -m ReferenceModel.py
+python smps.py --basename adtrain_1 -m adtrain.py

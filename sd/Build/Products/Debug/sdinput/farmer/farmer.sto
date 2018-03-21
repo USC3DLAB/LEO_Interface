@@ -1,0 +1,15 @@
+STOCH  farmer
+BLOCKS        DISCRETE
+ BL BLOCK001  PERIOD02        0.33
+    x1        minWheat      3
+    x2        minCorn       3.6
+    x3        sSold         -24
+ BL BLOCK001  PERIOD02        0.34
+    x1        minWheat      2.5
+    x2        minCorn       3
+    x3        sSold         -20
+ BL BLOCK001  PERIOD02        0.33
+    x1        minWheat      2.0
+    x2        minCorn       2.4
+    x3        sSold         -16
+ENDATA

@@ -1,0 +1,35 @@
+
+Log started (V12.6.0.0) Wed Oct 22 13:46:06 2014
+
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected bound      name:  BOUND
+Warning:  Blank RHS name changed to 'rhs'.
+
+Problem 'capacq.mps' read.
+Read time = 0.01 sec. (0.00 ticks)
+Primal unbounded due to dual bounds, variable 'x1'.
+Presolve time = 0.00 sec. (0.00 ticks)
+Presolve - Unbounded or infeasible.
+Solution time =    0.01 sec.
+Deterministic time = 0.00 ticks  (0.30 ticks/sec)
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected bound      name:  BOUND
+Warning:  Blank RHS name changed to 'rhs'.
+
+Problem 'capacq.mps' read.
+Read time = 0.00 sec. (0.00 ticks)
+Tried aggregator 1 time.
+No LP presolve or aggregator reductions.
+Presolve time = 0.00 sec. (0.00 ticks)
+
+Iteration log . . .
+Iteration:     1   Dual infeasibility =             3.500000
+
+Dual simplex - Optimal:  Objective = -1.3625000000e+05
+Solution time =    0.01 sec.  Iterations = 3 (3)
+Deterministic time = 0.01 ticks  (0.61 ticks/sec)
+

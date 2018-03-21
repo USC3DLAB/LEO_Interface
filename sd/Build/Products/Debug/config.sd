@@ -1,0 +1,195 @@
+// 
+// Sample configuration file for SD.
+// Last change Oct 19 2011
+//
+
+// ** STOPPING RULE TOLERANCE
+// Ratio used in test for optimality: (Sm - Lm) / Fk  < EPSILON.
+// ** SAMPLE SIZE OF THE IMPACT RATIO OF NEW SECOND STAGE DUAL INFORMATION
+// The variance of the ratio indicates the stability of the dual vertex set
+// EPSILON:
+// SCAN LENGTH: Powers of 2
+
+// The maximum number of pi ratio that will be stored
+// MAX_SCAN_LEN 512
+
+// CHOOSE ONE OF THE FOLLOWING 
+
+// LOOSE TOLERANCE
+// EPSILON 0.01
+// SCAN_LEN 64
+
+// NOMINAL TOLERANCE
+EPSILON 0.001
+SCAN_LEN 256
+
+// TIGHT TOLERANCE
+// EPSILON 0.00001
+// SCAN_LEN 512
+
+
+// 1 for multiple replications, 0 for single replication
+MULTIPLE_REP 0
+
+// Number of iterations between output of solution data to screen & file.
+PRINT_CYCLE 100
+
+// Set EVAL_RUN_FLAG to 1 to evaluate on the run. This should be only used 
+// for instances with relatively complete recourse. The choice of 1 is not
+// recommended because accurate function evaluations are unnecessarily 
+// time consuming. If you wish to set this option to 1, please use a 
+// large print cycle.
+EVAL_RUN_FLAG 0
+
+// Set EVAL_FLAG to 1 to get an estimated objective function value
+// for the final incumbent of each replication.
+EVAL_FLAG 0
+
+// Random number seed for resampling omegas during optimality test.
+EVAL_SEED1    2668655841019641
+
+// Obj. eval. is accurate to within this much, w/99% confidence
+EVAL_ERROR 0.01
+
+// Solution tolerance for deciding the usage of mean solution.
+MEAN_DEV 0.05
+
+// Number of iterations which must pass before optimality is checked.
+MIN_ITER 1
+
+// Maximum number of iterations for any given problem.
+MAX_ITER 5000
+
+// If primal solutions of first 3 replications are close to each
+// other, then give user an option to override the 30 replications
+// runs requirement. 0 for 30 replications and 1 for 3 replications
+// IS (intelligent stopping) when solutions are close.
+OVERRIDE 1
+
+// The input format for the model file (0 for MPS and 1 for LP)
+MODEL_FORMAT 0
+
+// ---------------Changes made below here are not recommended-----------------
+
+// In-sample boostrap test (set 0 to disable it)
+BOOTSTRAP_TEST 1
+
+// 0 for LP master, 1 for QP master 
+MASTER_TYPE 1
+
+// 0 for zero lower bound, 1 for mean value lower bound
+LB_TYPE 1
+
+// Amount of improvement which must be observed in order to update incumbent X.
+R 0.2
+
+// For updating the scaling factor. zl 
+R2 0.95
+
+// For updating the scaling factor. zl
+R3 2.0
+
+// The Minimum value of the cell->quad_scalar. zl
+MIN_QUAD_SCALAR 0.001
+
+// The Maximum value of the cell->quad_scalar. zl
+MAX_QUAD_SCALAR 10000.0
+
+// Number of iterations after which incumbent cut is reevaluated.
+TAU 2
+
+// Ratio used in pre_test for optimality: (Sm - Lm) / Fk  < PRE_EPSILON.
+PRE_EPSILON 0.01 
+
+// MIN_ITER will be max(ITER_FACT*xdim, MIN_ITER)   JH 3/13/98 
+ITER_FACT 0
+
+// Percent of resampled solutions which must meet test for optimality.
+PERCENT_PASS 0.95
+
+// Number of resampling to take when checking optimality.
+M 50 
+
+// Multiplier for the number of cuts; with QP, SD sets this to 1 
+CUT_MULT  5
+
+// Level of confidence when choosing the set of cuts, T, for optimality test.
+CONFID_HI 1.0
+
+// Level of confidence when conducting the optimality pre-test.
+CONFID_LO 1.45
+
+// Percent of the number by which two "equal" numbers may differ.
+TOLERANCE 0.001 
+
+// number by which two "equal" numbers may differ (used in judging feasibility).
+FEA_TOLER 0.05
+
+// Like tolerance, but used when trying to thin omegas.
+THIN_TOLER 0.001
+
+// Number of iterations before SD tries to thin the data structures. 
+START_THIN 9001
+
+// Number of iterations between successive thinning of structures.
+THIN_CYCLE 200 
+
+
+// Number of consecutive iterations a cut must be slack before its dropped.
+DROP_TIME 16300
+
+// 0 for pre-tests only, 1 for full_test
+TEST_TYPE 1
+
+// Number of iterations before checking new pi's impact
+PI_EVAL_START 1
+
+// Print out detailed solutions, set this to 1
+DETAILED_SOLN 1
+
+// Number of iterations between evaluation of the impact of new dual vertex
+PI_CYCLE 1
+
+// The flag for subproblem lower bound checker.
+// 0 -- no subproblem LB checking.
+// 1 -- check subproblem LB.
+SUB_LB_CHECK	0
+
+// The flag for seed generation method
+// 0 -- user provide seeds manually
+// 1 -- SD generates seeds automatically
+AUTO_SEED  0
+
+// 16 digits are recommended for the seed
+// Random number seed for generating observations of omega.
+// RUN_SEED1     9495518635394380
+RUN_SEED1     3554548844580680
+RUN_SEED2     4650175399072632
+RUN_SEED3     6070772756632709
+RUN_SEED4     5451675876709589
+RUN_SEED5     5285327724846206
+RUN_SEED6     5588857889468088
+RUN_SEED7     1098833779416153
+RUN_SEED8     6192593982049265
+RUN_SEED9     4756774140130874
+RUN_SEED10    6784592265109609
+RUN_SEED11    9728429908537680
+RUN_SEED12    1163479388309571
+RUN_SEED13    3279282318700126
+RUN_SEED14    8773753208032360
+RUN_SEED15    9337302665697748
+RUN_SEED16    4415169667296773
+RUN_SEED17    4220432037464045
+RUN_SEED18    3554548844580680
+RUN_SEED19    1814300451929103
+RUN_SEED20    5339672949292608
+RUN_SEED21    5638710736762732
+RUN_SEED22    3154245808720589
+RUN_SEED23    2414929536171258
+RUN_SEED24    7998609999427572
+RUN_SEED25    7080145164625719
+RUN_SEED26    3648862740490586
+RUN_SEED27    7772725003305823
+RUN_SEED28    5982768791029230
+RUN_SEED29    1395182510837913
+RUN_SEED30    3735836402047426

@@ -1,0 +1,5 @@
+TIME          ieee14
+PERIODS	      	
+    G[1]      gu[1]                  TIME1
+    L1[1]     f1[1]                  TIME2
+ENDATA
