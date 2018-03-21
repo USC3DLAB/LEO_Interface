@@ -21,13 +21,15 @@ class LEO(QMainWindow):
         self.compared_data = []
         self.compared_data_type = None
         self.test_data = []
+        self.ERROR_term  = []
         self.test_data_type = None
         self.save_folder = './'
         self.log_file_name = ''
+        self.pysp_file = None
         self.f = None
         self.tpye = None
         self.SL_Data = None
-        self.ERROR_term  = None
+        
 
 
         self.browser = QWebEngineView()
@@ -60,11 +62,11 @@ class LEO(QMainWindow):
         SL_data_load.triggered.connect(self.SL_data_load)
         SLMenu.addAction(SL_data_load)
 
-        ERROR_term_load = QAction('Load error data(*.csv)', self)
+        ERROR_term_load = QAction('Load the test error terms and validation error terms data(*.csv)', self)
         ERROR_term_load.triggered.connect(self.ERROR_term_load)
         SLMenu.addAction(ERROR_term_load)
 
-        CHI_for_error = QAction('perform a χ2-test to identify outliers', self)
+        CHI_for_error = QAction('perform a χ2-test for error termspy', self)
         CHI_for_error.triggered.connect(self.CHI_for_error)
         SLMenu.addAction(CHI_for_error)
 
@@ -120,6 +122,7 @@ class LEO(QMainWindow):
 
         chi = QAction('Chi-square test for error terms and cost-to-go objectives', self)
         chi.triggered.connect(self.chisquaredtest)
+
         testMenu.addAction(chi)
         ttest = QAction('T-test for the mean of cost-to-go function', self)
         ttest.triggered.connect(self.ttest)
@@ -158,6 +161,29 @@ class LEO(QMainWindow):
         self.setWindowTitle('Learning Enabled Optimization')
         self.show()
 
+
+    def PySP(self):
+        self.pysp_file, self.type = QFileDialog.getOpenFileName(self,
+                                                            "Choose one SL data(*.csv)",
+                                                            "./",
+                                                            "Python Files (*.py);;Python Files (*.py)")  ## open file, set file type filter
+        self.f = open(self.log_file_name,'a')
+        print('Load the following file for PySP to generate SMPS files:\n' + self.pysp_file + '\n')
+        self.f.write('Load the following file for PySP to generate SMPS files:\n')
+        self.f.write(self.pysp_file + '\n')
+        self.f.close()
+
+    
+
+
+
+    def SMPS(self):
+        return
+
+    def SD(self):
+        return
+
+
     def SL_data_load(self):
         self.SL_Data, self.type = QFileDialog.getOpenFileName(self,
                                                             "Choose one SL data(*.csv)",
@@ -177,7 +203,7 @@ class LEO(QMainWindow):
         self.f = open(self.log_file_name,'a')
         print('Load the following error terms data:\n')
         self.f.write('Load the following error terms data:\n')
-        for i in self.ERROR_terma:
+        for i in self.ERROR_term:
             print(i)
             self.f.write(i)
             self.f.write('\n')
@@ -185,7 +211,13 @@ class LEO(QMainWindow):
         self.f.close()
     
     def CHI_for_error(self):
-        return
+        train_data = self.readcsv(self.ERROR_term[0])
+        val_data = self.readcsv(self.ERROR_term[1])
+        output = scipy.stats.chisquare(val_data, train_data)
+        print('The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n')
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n')
+        self.f.close()
 
     def center(self):
         qr = self.frameGeometry()

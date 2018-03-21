@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/Users/jjxu/anaconda/envs/py36/bin/pythonw",
+    //pyomo install-extras"python.pythonPath": "/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/venv/bin/python",
     "python.linting.enabled": true
 }

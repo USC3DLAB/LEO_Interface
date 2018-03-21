@@ -1,3 +1,0 @@
-Load the following data files for test:
-/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/EAE_SAA_Train1.csv
-/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/NDC_Val1.csv

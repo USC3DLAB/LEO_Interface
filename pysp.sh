@@ -1,0 +1,1 @@
+python smps.py --basename bass99_599 -m ReferenceModel.py
