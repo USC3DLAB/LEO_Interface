@@ -190,26 +190,26 @@ class LEO(QMainWindow):
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.f_oneway(train_data, val_data)
         self.f = open(self.log_file_name,'a')
-        print('The outcome of F Test is ' + str(output) + '\n')
-        self.f.write('The outcome of F Test is ' + str(output) + '\n')
+        print('The p-value of F Test is ' + str(output.pvalue) + '\n')
+        self.f.write('The p-value of F-Test is ' + str(output.pvalue) + '\n')
         self.f.close()
 
     def chisquaredtest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.chisquare(val_data, train_data)
-        print('The outcome of Chi-Squared Test is ' + str(output) + '\n')
+        print('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
         self.f = open(self.log_file_name,'a')
-        self.f.write('The outcome of Chi-Squared Test is ' + str(output) + '\n')
+        self.f.write('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
         self.f.close()
 
     def ttest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.ttest_ind(train_data, val_data)
-        print('The outcome of T Test is ' + str(output) + '\n')
+        print('The p-value of T Test is ' + str(output.pvalue) + '\n')
         self.f = open(self.log_file_name,'a')
-        self.f.write('The outcome of T Test is ' + str(output) + '\n')
+        self.f.write('The p-value of T-Test is ' + str(output.pvalue) + '\n')
         self.f.close()
 
     def kwtest(self):
@@ -225,8 +225,7 @@ class LEO(QMainWindow):
                 data2 = self.readcsv(self.compared_data[j])
                 output = scipy.stats.kruskal(data1, data2)
                 df[model_types[i]][model_types[j]] = output.pvalue
-                df[model_types[j]][model_types[i]] = output.pvalue
-        print('The outcome of Kruskal-Wallis Test is')
+        print('The pvalue of Kruskal-Wallis Test is')
         print(df.to_string())
         self.f = open(self.log_file_name,'a')
         self.f.write('The outcome of Kruskal-Wallis Test is:\n')
