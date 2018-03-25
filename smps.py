@@ -1986,7 +1986,7 @@ def convertsmps_register_options(options=None):
         options,
         "output_directory",
         PySPConfigValue(
-            ".",
+            "./model/input",
             domain=_domain_must_be_str,
             description=(
                 "The directory in which all SMPS related output files "
@@ -2081,6 +2081,10 @@ def run_convertsmps(options):
         raise ValueError("Output basename is required. "
                          "Use the --basename command-line option")
 
+    if not os.path.exists(options.output_directory):
+        os.makedirs(options.output_directory)
+
+    options.output_directory = os.path.join(options.output_directory,options.basename) 
     if not os.path.exists(options.output_directory):
         os.makedirs(options.output_directory)
 

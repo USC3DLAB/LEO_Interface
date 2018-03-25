@@ -1,1 +1,1 @@
-python smps.py --basename adtrain_1 -m adtrain.py
+python smps.py --basename adtrain_1 -m ./model/adtrain.py

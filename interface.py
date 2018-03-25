@@ -2,13 +2,16 @@ import sys
 import os
 import csv
 import time
+import shutil 
+from pathlib import Path
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import scipy.stats
 from PyQt5.QtWebEngineWidgets import QWebEngineView # pylint: disable=E0611
-from PyQt5.QtCore import QUrl # pylint: disable=E0611
+from PyQt5.QtCore import QUrl, Qt, pyqtSignal, QTimer # pylint: disable=E0611
 from PyQt5.QtWidgets import QMainWindow, QAction, QMenu, QApplication, QWidget, QDesktopWidget, QFileDialog # pylint: disable=E0611
+from PyQt5.QtWidgets import QInputDialog, QMessageBox, QLineEdit
 # pylint: disable-msg=E0611
 
 class LEO(QMainWindow):
@@ -23,11 +26,11 @@ class LEO(QMainWindow):
         self.test_data = []
         self.ERROR_term  = []
         self.test_data_type = None
-        self.save_folder = './'
         self.log_file_name = ''
-        self.pysp_file = None
+        self.pysp_file = ''
         self.f = None
         self.tpye = None
+        self.smps_name = ''
         self.SL_Data = None
         
 
@@ -66,24 +69,29 @@ class LEO(QMainWindow):
         ERROR_term_load.triggered.connect(self.ERROR_term_load)
         SLMenu.addAction(ERROR_term_load)
 
-        CHI_for_error = QAction('perform a χ2-test for error termspy', self)
+        CHI_for_error = QAction('perform a χ2-test for error terms', self)
         CHI_for_error.triggered.connect(self.CHI_for_error)
         SLMenu.addAction(CHI_for_error)
 
 
         SPMenu = menubar.addMenu('SP Model')
-        PySP = QAction('Load SP model(*.py) and use PySP', self)
-        PySP.setStatusTip('Choose your SP model in *.py type, which will be used with PySP to generate SMPS files')
+        Load_SP = QAction('Load a SP model(*.py)', self)
+        Load_SP.setStatusTip('Choose your SP model in *.py type, which will be used with PySP to generate SMPS files')
+        Load_SP.triggered.connect(self.Load_SP)
+        SPMenu.addAction(Load_SP)
+
+        PySP = QAction('Generate SMPS files useing PySP', self)
+        PySP.setStatusTip('Generate SMPS files in folder ~.model/input/* with the SP model loaded using PySP')
         PySP.triggered.connect(self.PySP)
         SPMenu.addAction(PySP)
 
-        SMPS = QAction('Choose the SMPS folder', self)
-        SMPS.setStatusTip('Choose your SP model in *.py type, which will be used with PySP to generate SMPS files')
-        SMPS.triggered.connect(self.SMPS)
-        SPMenu.addAction(SMPS)
+        # SMPS = QAction('Choose the SMPS folder', self)
+        # SMPS.setStatusTip('Choose your SP model in *.py type, which will be used with PySP to generate SMPS files')
+        # SMPS.triggered.connect(self.SMPS)
+        # SPMenu.addAction(SMPS)
 
-        SD = QAction('Load SP model(*.py) and use PySP', self)
-        SD.setStatusTip('Use SD solver to ')
+        SD = QAction('USing SD Solver to slove the SMPS files', self)
+        SD.setStatusTip('USing SD Solver to slove the SMPS files, files stored in ./model')
         SD.triggered.connect(self.SD)
         SPMenu.addAction(SD)
 
@@ -120,7 +128,7 @@ class LEO(QMainWindow):
         data_validation.triggered.connect(self.open_file)
         testMenu.addAction(data_validation)
 
-        chi = QAction('Chi-square test for error terms and cost-to-go objectives', self)
+        chi = QAction('χ2 test for error terms and cost-to-go objectives', self)
         chi.triggered.connect(self.chisquaredtest)
 
         testMenu.addAction(chi)
@@ -130,10 +138,7 @@ class LEO(QMainWindow):
         ftest = QAction('F-test for the variance of cost-to-go function', self)
         ftest.triggered.connect(self.ftest)
         testMenu.addAction(ftest)
-        outliers = QAction('Tests to identify outliers', self)
-        testMenu.addAction(outliers)
-        prediction = QAction('Prediction and confidence intervals', self)
-        testMenu.addAction(prediction)
+       
 
         # Compare data performance
         ComparationMenu = menubar.addMenu('Compare')
@@ -162,27 +167,45 @@ class LEO(QMainWindow):
         self.show()
 
 
-    def PySP(self):
+
+
+
+    def Load_SP(self):
         self.pysp_file, self.type = QFileDialog.getOpenFileName(self,
-                                                            "Choose one SL data(*.csv)",
-                                                            "./",
+                                                            "Choose one SD model(*.py)",
+                                                            "./model",
                                                             "Python Files (*.py);;Python Files (*.py)")  ## open file, set file type filter
         self.f = open(self.log_file_name,'a')
-        print('Load the following file for PySP to generate SMPS files:\n' + self.pysp_file + '\n')
+        QMessageBox.information(self, "Return",   'Successful load the following SP model:\n' + self.pysp_file + '\n\n Next step: please using PySP to generate SMPS files', QMessageBox.Ok )        
         self.f.write('Load the following file for PySP to generate SMPS files:\n')
         self.f.write(self.pysp_file + '\n')
         self.f.close()
 
-    
 
+    def PySP(self):
+        self.smps_name, ok = QInputDialog.getText(self, "Name your model", "Please write down the name of your SP model:", QLineEdit.Normal, "")
+        os.system('python smps.py --basename ' +  self.smps_name  +  ' -m ' + self.pysp_file)
+        QMessageBox.information(self, "Return",   'Successful generate the SMPS files for :\n  ' + self.smps_name + '\nFiles store in ./model/input folder\n\n Next step: Solve SP problem(SD solver is provided) ', QMessageBox.Ok )        
+        
 
 
     def SMPS(self):
         return
 
     def SD(self):
-        return
 
+        if os.path.exists(Path('./sd/Build/Products/Debug/sdinput/')/ self.smps_name):
+            shutil.rmtree(Path('./sd/Build/Products/Debug/sdinput/')/ self.smps_name)
+        shutil.copytree(Path('./model/input/')/  self.smps_name, Path('./sd/Build/Products/Debug/sdinput')/ self.smps_name)
+        os.system('cd ./sd/Build/Products/Debug && ./sd ' +  self.smps_name)
+        if os.path.exists(Path('./model/output/')/  self.smps_name):
+            shutil.rmtree(Path('./model/output/')/  self.smps_name)
+        if not os.path.exists(Path('./sd/Build/Products/Debug/sdoutput/')/ self.smps_name):
+            raise ValueError("Input SMPS files not work")
+        else: 
+            shutil.copytree(Path('./sd/Build/Products/Debug/sdoutput/')/self.smps_name,Path('./model/output/')/  self.smps_name)
+        QMessageBox.information(self, "Return",   'Successful solving the SP problem :\n  ' + self.smps_name + '\nResults store in ./model/output folder', QMessageBox.Ok )        
+        
 
     def SL_data_load(self):
         self.SL_Data, self.type = QFileDialog.getOpenFileName(self,
@@ -190,7 +213,7 @@ class LEO(QMainWindow):
                                                             "./",
                                                             "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
         self.f = open(self.log_file_name,'a')
-        print('Load the following SL data:\n' + self.SL_Data + '\n')
+        QMessageBox.information(self, "Return",  'Successfully loading the following SL data:\n' + self.SL_Data + '\n', QMessageBox.Ok )        
         self.f.write('Load the following SL data:\n')
         self.f.write(self.SL_Data + '\n')
         self.f.close()
@@ -201,12 +224,17 @@ class LEO(QMainWindow):
                                                             "./",
                                                             "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
         self.f = open(self.log_file_name,'a')
+              
+        
         print('Load the following error terms data:\n')
         self.f.write('Load the following error terms data:\n')
+        j = ''
         for i in self.ERROR_term:
             print(i)
             self.f.write(i)
             self.f.write('\n')
+            j = j + i +'\n'
+        QMessageBox.information(self, "Return",  'Successfully loading the following error terms data:\n'+j, QMessageBox.Ok )  
         self.f.close()
         self.f.close()
     
@@ -214,7 +242,7 @@ class LEO(QMainWindow):
         train_data = self.readcsv(self.ERROR_term[0])
         val_data = self.readcsv(self.ERROR_term[1])
         output = scipy.stats.chisquare(val_data, train_data)
-        print('The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n')
+        QMessageBox.information(self, "Return",  'The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n', QMessageBox.Ok )  
         self.f = open(self.log_file_name,'a')
         self.f.write('The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n')
         self.f.close()
@@ -227,7 +255,8 @@ class LEO(QMainWindow):
 
     def generate_log_file(self):
         string = time.strftime('%b_%d_%Y_%H_%M_%S',time.localtime(time.time()))
-        self.log_file_name = 'log_data_' + string + '.txt'
+        log_file_name, ok = QInputDialog.getText(self, "Log file name", "Please write down the name of your log file:", QLineEdit.Normal, 'log_data_' + string)
+        self.log_file_name = log_file_name + '.txt'
         self.f = open(self.log_file_name, 'w')
         self.f.close()  
         #self.save_folder = QFileDialog.getExistingDirectory(self,
@@ -241,13 +270,15 @@ class LEO(QMainWindow):
                                                                                    "./",
                                                                                    "CSV Files (*.csv)")  ## open file, set file type filter
         self.f = open(self.log_file_name,'a')
-        print('Load the following data files for compare:')
         self.f.write('Load the following data files for compare:')
         self.f.write('\n')
+        j = ''
         for i in self.compared_data:
             print(i)
             self.f.write(i)
             self.f.write('\n')
+            j = j + i + '\n'
+        QMessageBox.information(self, "Return",  'Successfully loading the following data files for compare:\n'+j, QMessageBox.Ok )  
         self.f.close()
 
     ##open the two data files for test
@@ -257,17 +288,67 @@ class LEO(QMainWindow):
                                                                            "./",
                                                                            "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
         self.f = open(self.log_file_name,'a')
-        print('Load the following data files for test:\n')
         self.f.write('Load the following data files for test:\n')
+        j = ''
         for i in self.test_data:
             print(i)
             self.f.write(i)
             self.f.write('\n')
+            j = j + i + '\n'
+        QMessageBox.information(self, "Return",  'Successfully loading the following data files for test:\n'+j, QMessageBox.Ok )          
+        self.f.close()     
+
+    def ftest(self):
+        train_data = self.readcsv(self.test_data[0])
+        val_data = self.readcsv(self.test_data[1])
+        output = scipy.stats.f_oneway(train_data, val_data)
+        QMessageBox.information(self, "Return",  'The p-value of F Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )          
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The p-value of F-Test is ' + str(output.pvalue) + '\n')
+        self.f.close()
+
+    def chisquaredtest(self):
+        train_data = self.readcsv(self.test_data[0])
+        val_data = self.readcsv(self.test_data[1])
+        output = scipy.stats.chisquare(val_data, train_data)
+        QMessageBox.information(self, "Return",  'The p-value of F Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )   
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
+        self.f.close()
+
+    def ttest(self):
+        train_data = self.readcsv(self.test_data[0])
+        val_data = self.readcsv(self.test_data[1])
+        output = scipy.stats.ttest_ind(train_data, val_data)
+        QMessageBox.information(self, "Return",  'The p-value of T Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )  
+
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The p-value of T-Test is ' + str(output.pvalue) + '\n')
+        self.f.close()
+
+    def kwtest(self):
+        files_nb = len(self.compared_data)
+        model_types = []
+        for i in range(files_nb):
+            model_types.append(os.path.basename(self.compared_data[i]).split('.')[0])
+        df = pd.DataFrame(index=model_types, columns=model_types)
+        printout = ''
+        for i in range(files_nb):
+            data1 = self.readcsv(self.compared_data[i])
+            for j in range(i + 1, files_nb):
+                data2 = self.readcsv(self.compared_data[j])
+                output = scipy.stats.kruskal(data1, data2)
+                df[model_types[i]][model_types[j]] = output.pvalue
+                printout = printout + str(model_types[i]) + '/' + str(model_types[j]) + ': ' + str(output.pvalue) + '\n'
+
+        QMessageBox.information(self, "Return",  'The p-value of Kruskal-Wallis Test are\n' + printout, QMessageBox.Ok )   
+        self.f = open(self.log_file_name,'a')
+        self.f.write('The outcome of Kruskal-Wallis Test are:\n')
+        self.f.write(df.to_string())
         self.f.close()
 
     def cdf(self):
         for i in self.compared_data:
-            print(str(type(i)))
             data = self.readcsv(i)
             num_bins = int(np.max(data) - np.min(data))
             counts, bin_edges = np.histogram(data, bins=num_bins, normed=True)
@@ -277,54 +358,17 @@ class LEO(QMainWindow):
         plt.xlabel("Validated Objective")
         plt.ylabel("Cumulative frequency")
         plt.legend()
-        plt.show()
-
-    def ftest(self):
-        train_data = self.readcsv(self.test_data[0])
-        val_data = self.readcsv(self.test_data[1])
-        output = scipy.stats.f_oneway(train_data, val_data)
-        self.f = open(self.log_file_name,'a')
-        print('The p-value of F Test is ' + str(output.pvalue) + '\n')
-        self.f.write('The p-value of F-Test is ' + str(output.pvalue) + '\n')
-        self.f.close()
-
-    def chisquaredtest(self):
-        train_data = self.readcsv(self.test_data[0])
-        val_data = self.readcsv(self.test_data[1])
-        output = scipy.stats.chisquare(val_data, train_data)
-        print('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
-        self.f.close()
-
-    def ttest(self):
-        train_data = self.readcsv(self.test_data[0])
-        val_data = self.readcsv(self.test_data[1])
-        output = scipy.stats.ttest_ind(train_data, val_data)
-        print('The p-value of T Test is ' + str(output.pvalue) + '\n')
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The p-value of T-Test is ' + str(output.pvalue) + '\n')
-        self.f.close()
-
-    def kwtest(self):
         files_nb = len(self.compared_data)
         model_types = []
+        fig_name = ''
         for i in range(files_nb):
-            model_types.append(self.compared_data[i].split('/')[-1].split('.')[0])
-        df = pd.DataFrame(index=model_types, columns=model_types)
+            model_types.append(os.path.basename(self.compared_data[i]).split('.')[0])
+            fig_name =  fig_name + '_' + model_types[i]
+        fig_name = 'cdf' + fig_name + '.png'
+        plt.savefig(fig_name)
+        QMessageBox.information(self, "Return",  'Successfully generating figure for Frequency of Validated objective functions:\n' + 'Saved as: ' + fig_name, QMessageBox.Ok )                  
+        plt.close()
 
-        for i in range(files_nb):
-            data1 = self.readcsv(self.compared_data[i])
-            for j in range(i + 1, files_nb):
-                data2 = self.readcsv(self.compared_data[j])
-                output = scipy.stats.kruskal(data1, data2)
-                df[model_types[i]][model_types[j]] = output.pvalue
-        print('The pvalue of Kruskal-Wallis Test is')
-        print(df.to_string())
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The outcome of Kruskal-Wallis Test is:\n')
-        self.f.write(df.to_string())
-        self.f.close()
 
     def readcsv(self, filename):
         results = []
