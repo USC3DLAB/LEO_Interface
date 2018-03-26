@@ -11,8 +11,7 @@ import scipy.stats
 from PyQt5.QtWebEngineWidgets import QWebEngineView # pylint: disable=E0611
 from PyQt5.QtCore import QUrl, Qt, pyqtSignal, QTimer # pylint: disable=E0611
 from PyQt5.QtWidgets import QMainWindow, QAction, QMenu, QApplication, QWidget, QDesktopWidget, QFileDialog # pylint: disable=E0611
-from PyQt5.QtWidgets import QInputDialog, QMessageBox, QLineEdit
-# pylint: disable-msg=E0611
+from PyQt5.QtWidgets import QInputDialog, QMessageBox, QLineEdit       # pylint: disable-msg=E0611
 
 class LEO(QMainWindow):
 
@@ -33,7 +32,6 @@ class LEO(QMainWindow):
         self.smps_name = ''
         self.SL_Data = None
         
-
 
         self.browser = QWebEngineView()
         file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "intro.html"))
@@ -158,6 +156,7 @@ class LEO(QMainWindow):
 
         helpMenu = menubar.addMenu('Help')
         helpdoc = QAction('Documents', self)
+        # helpdoc.triggered.connect(self.helpdoc)
         helpMenu.addAction(helpdoc)
         examples = QAction('Examples', self)
         helpMenu.addAction(examples)
@@ -175,11 +174,12 @@ class LEO(QMainWindow):
                                                             "Choose one SD model(*.py)",
                                                             "./model",
                                                             "Python Files (*.py);;Python Files (*.py)")  ## open file, set file type filter
-        self.f = open(self.log_file_name,'a')
         QMessageBox.information(self, "Return",   'Successful load the following SP model:\n' + self.pysp_file + '\n\n Next step: please using PySP to generate SMPS files', QMessageBox.Ok )        
-        self.f.write('Load the following file for PySP to generate SMPS files:\n')
-        self.f.write(self.pysp_file + '\n')
-        self.f.close()
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('Load the following file for PySP to generate SMPS files:\n')
+            self.f.write(self.pysp_file + '\n')
+            self.f.close()
 
 
     def PySP(self):
@@ -212,40 +212,41 @@ class LEO(QMainWindow):
                                                             "Choose one SL data(*.csv)",
                                                             "./",
                                                             "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
-        self.f = open(self.log_file_name,'a')
         QMessageBox.information(self, "Return",  'Successfully loading the following SL data:\n' + self.SL_Data + '\n', QMessageBox.Ok )        
-        self.f.write('Load the following SL data:\n')
-        self.f.write(self.SL_Data + '\n')
-        self.f.close()
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('Load the following SL data:\n')
+            self.f.write(self.SL_Data + '\n')
+            self.f.close()
 
     def ERROR_term_load(self):
         self.ERROR_term, self.type = QFileDialog.getOpenFileNames(self,
                                                             "Choose two error terms data files(*.csv)",
                                                             "./",
                                                             "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
-        self.f = open(self.log_file_name,'a')
-              
-        
-        print('Load the following error terms data:\n')
-        self.f.write('Load the following error terms data:\n')
         j = ''
         for i in self.ERROR_term:
-            print(i)
-            self.f.write(i)
-            self.f.write('\n')
             j = j + i +'\n'
-        QMessageBox.information(self, "Return",  'Successfully loading the following error terms data:\n'+j, QMessageBox.Ok )  
-        self.f.close()
-        self.f.close()
+        QMessageBox.information(self, "Return",  'Successfully loading the following error terms data:\n'+j, QMessageBox.Ok ) 
+        
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('Load the following error terms data:\n')
+            for i in self.ERROR_term:  
+                self.f.write(i)
+                self.f.write('\n')
+            self.f.close()
+        
     
     def CHI_for_error(self):
         train_data = self.readcsv(self.ERROR_term[0])
         val_data = self.readcsv(self.ERROR_term[1])
         output = scipy.stats.chisquare(val_data, train_data)
         QMessageBox.information(self, "Return",  'The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n', QMessageBox.Ok )  
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n')
-        self.f.close()
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('The p-value of Chi-Squared Test for error terms is ' + str(output.pvalue) + '\n')
+            self.f.close()
 
     def center(self):
         qr = self.frameGeometry()
@@ -269,17 +270,19 @@ class LEO(QMainWindow):
                                                                                    "Choose data",
                                                                                    "./",
                                                                                    "CSV Files (*.csv)")  ## open file, set file type filter
-        self.f = open(self.log_file_name,'a')
-        self.f.write('Load the following data files for compare:')
-        self.f.write('\n')
         j = ''
         for i in self.compared_data:
-            print(i)
-            self.f.write(i)
-            self.f.write('\n')
             j = j + i + '\n'
         QMessageBox.information(self, "Return",  'Successfully loading the following data files for compare:\n'+j, QMessageBox.Ok )  
-        self.f.close()
+
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('Load the following data files for compare:')
+            self.f.write('\n')
+            for i in self.compared_data:
+                self.f.write(i)
+                self.f.write('\n') 
+            self.f.close()
 
     ##open the two data files for test
     def open_file(self):
@@ -287,44 +290,50 @@ class LEO(QMainWindow):
                                                                            "Choose data",
                                                                            "./",
                                                                            "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
-        self.f = open(self.log_file_name,'a')
-        self.f.write('Load the following data files for test:\n')
+        
         j = ''
         for i in self.test_data:
-            print(i)
-            self.f.write(i)
-            self.f.write('\n')
             j = j + i + '\n'
         QMessageBox.information(self, "Return",  'Successfully loading the following data files for test:\n'+j, QMessageBox.Ok )          
-        self.f.close()     
+
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('Load the following data files for test:\n') 
+            for i in self.test_data:
+                print(i)
+                self.f.write(i)
+                self.f.write('\n')
+            self.f.close()     
 
     def ftest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.f_oneway(train_data, val_data)
         QMessageBox.information(self, "Return",  'The p-value of F Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )          
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The p-value of F-Test is ' + str(output.pvalue) + '\n')
-        self.f.close()
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('The p-value of F-Test is ' + str(output.pvalue) + '\n')
+            self.f.close()
 
     def chisquaredtest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.chisquare(val_data, train_data)
         QMessageBox.information(self, "Return",  'The p-value of F Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )   
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
-        self.f.close()
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
+            self.f.close()
 
     def ttest(self):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.ttest_ind(train_data, val_data)
         QMessageBox.information(self, "Return",  'The p-value of T Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )  
-
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The p-value of T-Test is ' + str(output.pvalue) + '\n')
-        self.f.close()
+        if self.f != None:
+            self.f = open(self.log_file_name,'a')
+            self.f.write('The p-value of T-Test is ' + str(output.pvalue) + '\n')
+            self.f.close()
 
     def kwtest(self):
         files_nb = len(self.compared_data)
@@ -333,6 +342,8 @@ class LEO(QMainWindow):
             model_types.append(os.path.basename(self.compared_data[i]).split('.')[0])
         df = pd.DataFrame(index=model_types, columns=model_types)
         printout = ''
+
+
         for i in range(files_nb):
             data1 = self.readcsv(self.compared_data[i])
             for j in range(i + 1, files_nb):
@@ -342,10 +353,11 @@ class LEO(QMainWindow):
                 printout = printout + str(model_types[i]) + '/' + str(model_types[j]) + ': ' + str(output.pvalue) + '\n'
 
         QMessageBox.information(self, "Return",  'The p-value of Kruskal-Wallis Test are\n' + printout, QMessageBox.Ok )   
-        self.f = open(self.log_file_name,'a')
-        self.f.write('The outcome of Kruskal-Wallis Test are:\n')
-        self.f.write(df.to_string())
-        self.f.close()
+        if self.f != None: 
+            self.f = open(self.log_file_name,'a')
+            self.f.write('The outcome of Kruskal-Wallis Test are:\n')
+            self.f.write(df.to_string())
+            self.f.close()
 
     def cdf(self):
         for i in self.compared_data:
@@ -369,6 +381,8 @@ class LEO(QMainWindow):
         QMessageBox.information(self, "Return",  'Successfully generating figure for Frequency of Validated objective functions:\n' + 'Saved as: ' + fig_name, QMessageBox.Ok )                  
         plt.close()
 
+    # def helpdoc(self):
+    #     subprocess.Popen(['LEO.pdf],shell=True)
 
     def readcsv(self, filename):
         results = []
