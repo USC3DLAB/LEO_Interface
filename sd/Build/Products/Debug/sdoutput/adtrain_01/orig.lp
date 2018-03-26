@@ -1,5 +1,5 @@
 \ENCODING=ISO-8859-1
-\Problem name: adtrain
+\Problem name: adtrain_01
 
 Minimize
  obj: 0.1 x1 + 0.5 x2 - 3 x3 - 5 x4

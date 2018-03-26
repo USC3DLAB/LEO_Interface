@@ -1,0 +1,20 @@
+Load the following error terms data:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/data_for_test/EAE_SD_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/data_for_test/EAE_SD_Train1.csv
+The p-value of Chi-Squared Test for error terms is 1.25291989921e-118
+Load the following file for PySP to generate SMPS files:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/model/adtrain.py
+Load the following data files for test:
+Load the following data files for test:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/data_for_test/EAE_SAA_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/data_for_test/EAE_SAA_Train1.csv
+The p-value of Chi-Squared Test is 1.0
+The p-value of T-Test is 1.0
+The p-value of F-Test is 1.0
+Load the following data files for test:
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/data_for_test/NDC_Val1.csv
+/Users/jjxu/Documents/GitHub/Learning-Enabled-Optimization-/data_for_test/NDC_Train1.csv
+The p-value of Chi-Squared Test is 4.72056979908e-122
+The p-value of T-Test is 3.21666100839e-19
+The p-value of F-Test is 3.21666100838e-19
+Load the following data files for test:

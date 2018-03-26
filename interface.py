@@ -174,7 +174,7 @@ class LEO(QMainWindow):
                                                             "Choose one SD model(*.py)",
                                                             "./model",
                                                             "Python Files (*.py);;Python Files (*.py)")  ## open file, set file type filter
-        QMessageBox.information(self, "Return",   'Successful load the following SP model:\n' + self.pysp_file + '\n\n Next step: please using PySP to generate SMPS files', QMessageBox.Ok )        
+        QMessageBox.information(self, "Return",   'Successful loaded the following SP model:\n' + self.pysp_file + '\n\n Next step: please use PySP to generate SMPS files', QMessageBox.Ok )        
         if self.f != None:
             self.f = open(self.log_file_name,'a')
             self.f.write('Load the following file for PySP to generate SMPS files:\n')
@@ -185,7 +185,7 @@ class LEO(QMainWindow):
     def PySP(self):
         self.smps_name, ok = QInputDialog.getText(self, "Name your model", "Please write down the name of your SP model:", QLineEdit.Normal, "")
         os.system('python smps.py --basename ' +  self.smps_name  +  ' -m ' + self.pysp_file)
-        QMessageBox.information(self, "Return",   'Successful generate the SMPS files for :\n  ' + self.smps_name + '\nFiles store in ./model/input folder\n\n Next step: Solve SP problem(SD solver is provided) ', QMessageBox.Ok )        
+        QMessageBox.information(self, "Return",   'Successful generated the SMPS files for :\n  ' + self.smps_name + '\nFiles are stored in ./model/input folder\n\n Next step: Solve SP problem(SD solver is provided) ', QMessageBox.Ok )        
         
 
 
@@ -204,7 +204,7 @@ class LEO(QMainWindow):
             raise ValueError("Input SMPS files not work")
         else: 
             shutil.copytree(Path('./sd/Build/Products/Debug/sdoutput/')/self.smps_name,Path('./model/output/')/  self.smps_name)
-        QMessageBox.information(self, "Return",   'Successful solving the SP problem :\n  ' + self.smps_name + '\nResults store in ./model/output folder', QMessageBox.Ok )        
+        QMessageBox.information(self, "Return",   'Successful solved the SP problem :\n  ' + self.smps_name + '\nResults are stored in ./model/output folder', QMessageBox.Ok )        
         
 
     def SL_data_load(self):
@@ -212,7 +212,7 @@ class LEO(QMainWindow):
                                                             "Choose one SL data(*.csv)",
                                                             "./",
                                                             "CSV Files (*.CSV);;CSV Files (*.csv)")  ## open file, set file type filter
-        QMessageBox.information(self, "Return",  'Successfully loading the following SL data:\n' + self.SL_Data + '\n', QMessageBox.Ok )        
+        QMessageBox.information(self, "Return",  'Successfully loaded the following SL data:\n' + self.SL_Data + '\n', QMessageBox.Ok )        
         if self.f != None:
             self.f = open(self.log_file_name,'a')
             self.f.write('Load the following SL data:\n')
@@ -227,7 +227,7 @@ class LEO(QMainWindow):
         j = ''
         for i in self.ERROR_term:
             j = j + i +'\n'
-        QMessageBox.information(self, "Return",  'Successfully loading the following error terms data:\n'+j, QMessageBox.Ok ) 
+        QMessageBox.information(self, "Return",  'Successfully loaded the following error terms data:\n'+j, QMessageBox.Ok ) 
         
         if self.f != None:
             self.f = open(self.log_file_name,'a')
@@ -273,7 +273,7 @@ class LEO(QMainWindow):
         j = ''
         for i in self.compared_data:
             j = j + i + '\n'
-        QMessageBox.information(self, "Return",  'Successfully loading the following data files for compare:\n'+j, QMessageBox.Ok )  
+        QMessageBox.information(self, "Return",  'Successfully loaded the following data files for compare:\n'+j, QMessageBox.Ok )  
 
         if self.f != None:
             self.f = open(self.log_file_name,'a')
@@ -294,7 +294,7 @@ class LEO(QMainWindow):
         j = ''
         for i in self.test_data:
             j = j + i + '\n'
-        QMessageBox.information(self, "Return",  'Successfully loading the following data files for test:\n'+j, QMessageBox.Ok )          
+        QMessageBox.information(self, "Return",  'Successfully loaded the following data files for test:\n'+j, QMessageBox.Ok )          
 
         if self.f != None:
             self.f = open(self.log_file_name,'a')
@@ -319,7 +319,7 @@ class LEO(QMainWindow):
         train_data = self.readcsv(self.test_data[0])
         val_data = self.readcsv(self.test_data[1])
         output = scipy.stats.chisquare(val_data, train_data)
-        QMessageBox.information(self, "Return",  'The p-value of F Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )   
+        QMessageBox.information(self, "Return",  'The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n', QMessageBox.Ok )   
         if self.f != None:
             self.f = open(self.log_file_name,'a')
             self.f.write('The p-value of Chi-Squared Test is ' + str(output.pvalue) + '\n')
