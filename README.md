@@ -1,2 +1,2 @@
 # Learning Enabled Optimization(LEO)
-This software is a interface for LEO. 
+This software is the interface for LEO. 
