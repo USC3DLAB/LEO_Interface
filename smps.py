@@ -7,7 +7,7 @@
 #  rights in this software.
 #  This software is distributed under the 3-clause BSD License.
 #  ___________________________________________________________________________
-
+from pathlib import Path
 import os
 import argparse
 import sys
@@ -1986,7 +1986,7 @@ def convertsmps_register_options(options=None):
         options,
         "output_directory",
         PySPConfigValue(
-            "./model/input",
+            "./smps",
             domain=_domain_must_be_str,
             description=(
                 "The directory in which all SMPS related output files "
