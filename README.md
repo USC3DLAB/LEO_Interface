@@ -20,6 +20,7 @@ source tutorial-env/bin/activate
 *3. Change path to LEO software*
 
 cd your/path/to/this/folder
+
 e.g. /Users/jjxu/Documents/GitHub/LEO
 
 
