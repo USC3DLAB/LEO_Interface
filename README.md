@@ -2,6 +2,7 @@
 This software is designed for LEO. 
 
 #How to run this in your conputers?#
+
 1.Create a  python3.6 environment
 python3 -m venv tutorial-env
 
@@ -12,8 +13,9 @@ On Unix or MacOS, run:
 source tutorial-env/bin/activate
 
 3.Change path to LEO software: 
-cd /Users/jjxu/Documents/GitHub/LEO
-**please use your path**
+cd your/path/to/this/folder
+e.g. /Users/jjxu/Documents/GitHub/LEO
+
 
 4. Install packages:
 pip install -r requirements.txt
