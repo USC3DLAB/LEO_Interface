@@ -34,8 +34,10 @@ pythonw interface.py
 
 
 
-Suggestion: use Anaconda to manage python package. See: https://www.anaconda.com/download
-Learn more about venv, please see: https://docs.python.org/3/library/venv.html
-If Matplotlib does not work, see: https://matplotlib.org/faq/osx_framework.html
+*Suggestion: use Anaconda to manage python package. See: https://www.anaconda.com/download*
+
+*Learn more about venv, please see: https://docs.python.org/3/library/venv.html*
+
+*If Matplotlib does not work, see: https://matplotlib.org/faq/osx_framework.html*
 
 
