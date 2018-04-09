@@ -1,11 +1,11 @@
 # Learning Enabled Optimization(LEO)
 This software is designed for LEO. 
 
-**How to run this in your conputers?**
+*How to run this in your conputers?*
 
 0. Download or clone this repository
 
-***1. Create a  python3.6 environment***
+**1. Create a  python3.6 environment**
 
 python3 -m venv tutorial-env
 
