@@ -34,7 +34,9 @@ pythonw interface.py
 
 ***********************************************************************************************************************
 
-*Suggestion: use Anaconda to manage python package. See: https://www.anaconda.com/download*
+*Suggestion:
+
+*Use Anaconda to manage python packages, please see: https://www.anaconda.com/download*
 
 *Learn more about venv, please see: https://docs.python.org/3/library/venv.html*
 
