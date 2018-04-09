@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 pythonw interface.py
 
-
+***********************************************************************************************************************
 
 *Suggestion: use Anaconda to manage python package. See: https://www.anaconda.com/download*
 
