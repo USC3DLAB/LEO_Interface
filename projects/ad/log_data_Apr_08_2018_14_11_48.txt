@@ -1,9 +1,0 @@
-Imported the following data sets for comparison:
-/Users/jjxu/Documents/GitHub/LEO/data_for_test/NDU_Val1.csv
-/Users/jjxu/Documents/GitHub/LEO/data_for_test/EAE_SD_Val1.csv
-/Users/jjxu/Documents/GitHub/LEO/data_for_test/DF_Val1.csv
-The p-value of Kruskal-Wallis Test are:
-                NDU_Val1 EAE_SD_Val1 DF_Val1
-NDU_Val1             NaN         NaN     NaN
-EAE_SD_Val1  8.31858e-16         NaN     NaN
-DF_Val1      5.17084e-33  5.1721e-33     NaN
