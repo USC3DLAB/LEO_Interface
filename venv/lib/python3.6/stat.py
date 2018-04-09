@@ -1,1 +1,1 @@
-/Users/jjxu/anaconda/envs/py36/lib/python3.6/stat.py
+/Users/jjxu/anaconda3/envs/py36/lib/python3.6/stat.py

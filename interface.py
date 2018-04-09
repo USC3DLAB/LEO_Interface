@@ -1,12 +1,14 @@
 import sys
 import os
-import csv
+import  csv 
 import time
-import shutil 
+import shutil
 from pathlib import Path
 import numpy as np
-import pandas as pd
+from pandas import DataFrame
+
 import matplotlib.pyplot as plt
+
 import scipy.stats
 from PyQt5.QtWebEngineWidgets import QWebEngineView # pylint: disable=E0611
 from PyQt5.QtCore import QUrl, Qt, pyqtSignal, QTimer # pylint: disable=E0611
@@ -464,7 +466,7 @@ class LEO(QMainWindow):
             model_types = []
             for i in range(files_nb):
                 model_types.append(os.path.basename(self.compared_data[i]).split('.')[0])
-            df = pd.DataFrame(index=model_types, columns=model_types)
+            df = DataFrame(index=model_types, columns=model_types)
             printout = ''
 
             for i in range(files_nb):
