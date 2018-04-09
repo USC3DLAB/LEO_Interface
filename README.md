@@ -36,7 +36,7 @@ pythonw interface.py
 
 *Suggestion:
 
-*Use Anaconda to manage python packages, please see: https://www.anaconda.com/download*
+*Use Anaconda(python 3.6 version) to manage python packages, please see: https://www.anaconda.com/download*
 
 *Learn more about venv, please see: https://docs.python.org/3/library/venv.html*
 
