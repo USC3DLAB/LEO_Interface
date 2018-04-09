@@ -10,7 +10,7 @@ Total Objective Function Lower Bound:   -40.874434
 First Stage Solutions:
    No.   Row name   Activity      Lower bound   Upper bound   Dual          Dual STDEV
 ------ ------------ ------------- ------------- ------------- ------------- -------------
-     0 x5            0.000000e+00 
+     0 x5            1.000000e+00 
      1 c_l_x6_       1.871531e+02  0.000000e+00                0.000000e+00 
      2 c_u_x7_       2.000000e+02                2.000000e+02 -3.330509e-02 
 

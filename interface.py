@@ -273,6 +273,7 @@ class LEO(QMainWindow):
             os.system('python smps.py --basename ' +  self.smps_name  +  ' -m ' + self.pysp_file)
             
             
+            
             if os.path.exists(Path(project_floder_SP_input)/self.smps_name):
                 shutil.rmtree(Path(project_floder_SP_input)/self.smps_name)
             

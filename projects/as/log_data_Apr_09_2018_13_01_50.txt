@@ -1,2 +1,0 @@
-Imported the following SP model:
-/Users/jjxu/Documents/GitHub/LEO/model/adtrain.py
