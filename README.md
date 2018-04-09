@@ -3,11 +3,7 @@ This software is designed for LEO.
 
 **How to run this in your conputers?**
 
-*0. Download or clone this repository*
-
-*1. Create a  python3.6 environment*
-
-python3 -m venv tutorial-env
+*1. Download or clone this repository*
 
 *2. Download Anaconda(python 3.6 version)*
 
