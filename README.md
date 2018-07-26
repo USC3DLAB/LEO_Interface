@@ -1,28 +1,18 @@
-# Learning Enabled Optimization(LEO)
-This software is designed for LEO. 
+# Learning Enabled Optimization (LEO)
 
-**How to run this in your conputers?**
+This software is distributed for academic and non-profit use. Please see the license file for copyright details, and contact the authors for commercial use.
 
-*0. Download or clone this repository*
+**How to run this in your computers?**
 
-*1. Create a  python3.6 environment*
+*1. Download or clone this repository*
 
-python3 -m venv tutorial-env
-
-*2. Activate the environment*
-
-On Windows, run:
-tutorial-env\Scripts\activate.bat
-
-On Unix or MacOS, run:
-source tutorial-env/bin/activate
+*2. Download Anaconda (python 3.6 version)*
 
 *3. Change path to LEO software*
 
 cd your/path/to/this/folder
 
 e.g. /Users/jjxu/Documents/GitHub/LEO
-
 
 *4. Install packages*
 
