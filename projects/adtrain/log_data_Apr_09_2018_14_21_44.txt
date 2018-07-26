@@ -1,0 +1,6 @@
+Imported the following SP model:
+/Users/jjxu/Documents/GitHub/LEO/model/adtrain.py
+Imported the following data sets for test:
+/Users/jjxu/Documents/GitHub/LEO/data_for_test/NDU_Val1.csv
+/Users/jjxu/Documents/GitHub/LEO/data_for_test/NDU_Train1.csv
+The p-value of Chi-Squared-Test is 3.2218939475838656e-86
