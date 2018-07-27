@@ -1,0 +1,4 @@
+Imported the following error terms data files:
+/Users/jjxu/Documents/GitHub/LEO/data_for_test/DF_Train1.csv
+/Users/jjxu/Documents/GitHub/LEO/data_for_test/DF_Val1.csv
+The p-value of Chi-Squared Test for error terms is 0.0
